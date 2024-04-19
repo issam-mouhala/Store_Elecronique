@@ -1,0 +1,128 @@
+*{
+ 
+    box-sizing: border-box;
+}
+body{
+       padding: 0;
+       margin: 0;
+       height: 100vh;
+       width: 100vw;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       background-image: url("../img/formes-papier-psychedeliques-espace-copie.jpg");
+       background-attachment: fixed;
+       background-size: cover;
+       background-repeat: no-repeat;
+    }
+.cont{
+    height: max-content;
+    width: 40vw;
+    border: 1px solid rgb(182, 173, 173);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+    border-radius: 3%;
+    backdrop-filter: blur(4px);
+    box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.404),-3px 2px 20px rgba(141, 1, 184, 0.281),4px 2px 15px rgba(250, 246, 2, 0.349),4px 2px 20px rgba(4, 226, 215, 0.151),6px 2px 20px rgba(6, 174, 241, 0.192),-6px 2px 20px rgba(51, 1, 230, 0.199);
+}
+input{
+    height: 50px;
+    width: 50% ;  
+    font-size: large;
+    padding-left: 10px;
+   border-radius: 5px;
+   background-color: transparent;
+   outline: 0;
+   border: 1px solid rgba(163, 156, 156, 0.781);
+   color: aliceblue;
+
+}
+input[type="submit"]{
+    margin-top: 20px;
+    background-color: #000000;
+    color: aliceblue; 
+        width: 40% ; 
+           cursor: pointer;
+ 
+
+}
+input::placeholder{
+    font-size: large;
+    padding-left: 10px;   
+
+
+}
+input:focus:not(input[type="submit"]){
+    outline: 2px solid rgb(0, 217, 255);
+}
+
+a{
+    margin: 20px;
+    text-decoration: none;
+    color: #420ffc;
+}
+button{
+    margin-top: 50px;
+    width: 300px;
+    background-color: #000000e0;
+    border: 0;
+    height: 50px;
+    font-size: x-large;
+    border-radius: 20px;
+    color: beige;
+    box-shadow: 2px 2px 4px rgb(251, 247, 255),4px 4px 4px rgb(0, 0, 0),6px 6px 4px #000000e0;
+}
+button a{
+    margin: 20px;
+    text-decoration: none;
+    color: beige;
+}
+button:hover{
+    box-shadow: -2px 2px 4px rgb(251, 247, 255),-4px 4px 4px rgb(0, 0, 0),-6px 6px 4px #000000e0;
+
+}
+h1,h2{
+    color: rgb(255, 255, 255);
+}
+h2:nth-child(2){
+    color: crimson;
+    position: absolute;
+    transform: translateY(-129px);
+}
+@media  screen and (max-width:1000px) {
+     body{
+background-color: aliceblue;     
+background-image: linear-gradient(60deg,rgb(251, 255, 252),rgb(212, 233, 21) 20%,rgb(255, 255, 255));
+}
+        
+  h1{
+    color: #000000;
+  }
+        h2:last-child{
+font-size: inherit;
+}
+h2 a{
+    color: #000000;
+}
+h2:nth-child(2){
+    font-size:large;
+
+    /* width: max-content; */
+}
+.cont{
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    border: none;
+}
+input:not(input[type="submit"]){
+           width: 100%;
+           scale: 0.9;
+           color: #000000;
+  }  
+
+}
