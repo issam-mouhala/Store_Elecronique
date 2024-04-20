@@ -32,7 +32,6 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
   <body>
     <nav class="flex_r_sb">
       <div class="titre flex_r">
-        <img src="../img/17939.jpg" alt="" />
         <h1>Lotchy Store</h1>
       </div>
       <input type="search" name="" id="" placeholder="Search in store...">
@@ -60,9 +59,12 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     </nav>
     <main>
     <div id="switch_imgs" data-i="2">
-        <img src="../img/img1.jpg" alt="" >
-        <img src="../img/img2.jpg"  >
-        <img src="../img/img3.jpg" >
+        <img src="../img/stock/stock_img3.jpg" alt="" >
+        <img src="../img/stock/stock_img4.jpg"  >
+        <img src="../img/stock/stock_img9.jpg" >
+        <img src="../img/stock/stock_img5.jpg" >
+        <img src="../img/stock/stock_img2.jpg" >
+
       </div>
       <div class="flex_r" id="products">
       </div>

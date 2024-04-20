@@ -36,16 +36,21 @@ nav h1{
     display: inline;
     font-size: xx-large;
     font-weight: lighter; 
+    color: antiquewhite;
 }
 nav{
     box-shadow: 0px -10px 20px;
+    background-color: #191919;
 }
 a{
     text-decoration: none;
 }
 nav li a{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 
+}
+i{
+    background-color: transparent;
 }
 nav > .nav{
     list-style: none;
@@ -58,12 +63,13 @@ nav > .nav > li{
     margin-right:100px;
     transition: all 0.3s linear;
     cursor: pointer;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 nav > .nav > li:not(li:last-child){
-        background-color:rgba(255, 255, 255, 0.884);
+        background-color:rgba(255, 255, 255, 0);
         border-left: 2px solid black;
         border-right: 2px solid black;
+        color: antiquewhite;
 
 
 }
@@ -100,6 +106,7 @@ nav > .nav >li:hover{
     cursor: pointer;
     border-bottom: 1px solid;
     display: inline;
+    color: #fff0f0;
 
 }
 .product_price> h2{
@@ -113,7 +120,7 @@ nav > .nav >li:hover{
     margin-top: 30px;
 }
 #switch_imgs{
-    height: 50vh;
+    height: 53vh;
     width: 100%;
     margin-top: 30px;
     background-color: rgb(248, 251, 253);
@@ -127,6 +134,7 @@ nav > .nav >li:hover{
     overflow-y: hidden;
     column-gap: 3px;
     scrollbar-width: 10px;
+    scale: 0.8;
 }
 #switch_imgs::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -170,6 +178,7 @@ nav >ul > li:last-child{
     display: inline;
     padding: 10px;
     text-align: center;
+    color: antiquewhite;
 
 }
 nav >.nav >li:last-child:hover{
@@ -190,7 +199,7 @@ nav >.nav >li:last-child:hover{
     z-index: 1;
 }
 #sale_inc{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border: 0;
     font-size: xx-large;
 
@@ -258,8 +267,8 @@ nav >.nav >li:last-child:hover{
 }
 input[type="search"]{
     width: 300px;
-    height: 50px;
-    border-radius: 5px;
+    height: 40px;
+    border-radius: 80px;
     outline: 0;
     border: 0;
     border: 1px solid;
@@ -310,15 +319,15 @@ input[type="search"]::placeholder{
     color: crimson;
     width: 80px;
     height: 50px;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: rgb(251, 253, 139);
     margin-left:210px;
     margin-top: -40px;
 }
 input[type="submit"]{
-    height: 50px;
+    height: 40px;
     border: 0;
-    border-radius: 10px;
+    border-radius: 70px;
     background-color: rgba(255, 68, 0, 0.76);
     font-size: large;
     text-transform: uppercase;
@@ -363,10 +372,13 @@ li{
 }
 h3{
     display: inline;
+    color: #fff0f0;
 }
 li:last-child a{
-    color: #ff0000;
+    color: #fff0f0;
 margin:  50px;
+background-color: crimson;
+padding: 20px;
 }
 @media  screen and (max-width:720px) {
    #switchs_img{
@@ -389,5 +401,8 @@ margin:  50px;
 }
    nav.flex_r_sb{
 display: none;  }
+}
+nav li{
+    background-color: transparent;
 }
 
