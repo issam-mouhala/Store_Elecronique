@@ -62,7 +62,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         <img src="../img/stock/stock_img3.jpg" alt="" >
         <img src="../img/stock/stock_img4.jpg"  >
         <img src="../img/stock/stock_img9.jpg" >
-        <img src="../img/stock/stock_img5.jpg" >
+        <img src="../img/stock/stock_img10.jpg" >
         <img src="../img/stock/stock_img2.jpg" >
 
       </div>
