@@ -45,7 +45,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         <li id="sale_inc" data-click="false"><i class="fa-solid fa-cart-plus"><span id="sale">0</span></i></li>
         <?php
         if($nom=="Guest"){
-          echo '<li class="signin"><a href="../signin/signin.php" >Sign In<i class="fa-solid fa-chevron-down"></i></a></li>
+          echo '<li class="signin"><a id="signin"href="../signin/signin.php" >Sign In<i class="fa-solid fa-chevron-down"></i></a></li>
           ';
         }else{
           echo '<h3>'.$nom.'</h3><li><a id="signout" href="http://127.0.0.1/siteWebProject/SiteMiniProject/main/signin/signin.php">    

@@ -41,6 +41,9 @@ nav h1{
 nav{
     box-shadow: 0px -10px 20px;
     background-color: #191919;
+    position: sticky;
+    z-index: 100;
+    top: 0;
 }
 a{
     text-decoration: none;
@@ -106,7 +109,7 @@ nav > .nav >li:hover{
     cursor: pointer;
     border-bottom: 1px solid;
     display: inline;
-    color: #fff0f0;
+    color: #000000;
 
 }
 .product_price> h2{
@@ -189,13 +192,15 @@ nav >.nav >li:last-child:hover{
     width: 400px;
     padding: 20px;
     height: max-content;
-    background-color: #F4BB46;
+    background-color: #ffffff69;
     position: absolute;
     transform: translate(500px,50px);
     border-radius: 10px;
     display: none;
     backdrop-filter: blur(4px);
     z-index: 1;
+    border: 1px dashed rgb(184, 184, 192);
+    backdrop-filter: blur(6px);
 }
 #sale_inc{
     color: rgb(255, 255, 255);
@@ -204,7 +209,14 @@ nav >.nav >li:last-child:hover{
 
 }
 #sale{
-    margin-left: 10px;
+    margin-left: 11px;
+    /* scale: 0.2; */
+    font-size: small;
+    background-color: red;
+    padding: 4px;
+    border-radius: 16px;
+    position: absolute;
+    transform: translate(-24px, -6px);
 }
 #sale_display:hover{
     display: block;
@@ -272,7 +284,7 @@ input[type="search"]{
     border: 0;
     border: 1px solid;
     font-size:x-large;
-    padding-left: 10px;
+    padding: 10px;
     font-weight: 200;
 
 }
@@ -281,6 +293,7 @@ input[type="search"]:focus{
 }
 input[type="search"]::placeholder{
     font-size: medium;
+    color: rgb(197, 193, 193);
 }
 .product1::before{
     content: "";
@@ -362,6 +375,9 @@ i{
     padding: 4px;
     border-radius: 10px;
 }
+#signin{
+    background-color: transparent;
+}
 li{
     border: 0;
     
@@ -377,7 +393,10 @@ li:last-child a{
     color: #fff0f0;
 margin:  50px;
 background-color: crimson;
-padding: 20px;
+padding: 13px;
+}
+button:last-child{
+border: 0;
 }
 @media  screen and (max-width:720px) {
    #switchs_img{
@@ -410,6 +429,10 @@ img{
 img:hover{
     scale: 1.1;
 }
-#switch_imgs >img{
-    
+#sale_inc > #sale{
+    scale: 0.3;
+
+}
+.product_price >h2{
+    font-size:medium;
 }

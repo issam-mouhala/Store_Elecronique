@@ -33,7 +33,7 @@ mysqli_query($conn,$sql);
           <input type="password" name="password" placeholder="Password" />
           <input type="submit" name="sub" value="Sign In" />
           <!-- <h2><a href="">Forgot password?</a> Or <a href="">Sign Up</a></h2> -->
-          <h2><a href="">Sign Up</a></h2>
+          <h2 class="signup"><a href="">Sign Up</a></h2>
         </div>
       </form>
     </main>

@@ -10,23 +10,26 @@ for (let i = 1; i < n+1; i++) {
     let a=document.createElement("a");
     let panier_paye=document.createElement("div");
     let panier=document.createElement("i");
+    let btn=document.createElement("button");
     let paye =document.createElement("h1");
+    let form=document.createElement("form");
+    let input_namep=document.createElement("input");
     let del=h2.cloneNode(true);
     let price=Math.floor(Math.random()*100);
     let product_name=["Pc Laptob 350G sdd", "Pc Complet + clavie","Screen Appel","Pc + Picker","Clavie","Mouse","Cable USB","Pack Cable","Phone Glaxsy G5","Laptob 460G"]
     paye.textContent="Payer";
-   
     paye.className="paye"
     paye.setAttribute("name","paye");
-
     panier_paye.className="panier_paye";
     panier.className="fa-solid fa-cart-plus panier";
     panier.id="product"+i;
     panier.setAttribute("data-click","false");
-    panier_paye.append(paye,panier);
-    panier_paye.setAttribute("action","..\\signin\\save_data.php");
-    panier_paye.setAttribute("method","post")
+    form.setAttribute("action","..\\signin\\save_data.php");
+    form.setAttribute("method","post")
     product.className="product"+i;
+    input_namep.value=product.className
+    input_namep.name='pname'
+    input_namep.style.display="none"
     product.id="product";
     del.innerText="$"+(price+12);
     product_img.className="product"+i+"_img"+" product_img";
@@ -36,10 +39,14 @@ for (let i = 1; i < n+1; i++) {
     h2.innerText="Price $"+price;
     img.setAttribute("src","../img/stock/stock_img"+i+".jpg");
     img.setAttribute("alt","img"+i);
+    btn.appendChild(panier)
+    btn.name='sub'
+    panier_paye.append(paye,btn);
     a.append(h2);
     product_img.appendChild(img);
     product_price.append(a,del);
-    product.append(product_img,h1,product_price,panier_paye);
+    form.append(input_namep,panier_paye)
+    product.append(product_img,h1,product_price,form);
     products.appendChild(product);
 }
 // let switch_img=document.querySelectorAll("#switch_imgs img");
