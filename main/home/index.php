@@ -6,6 +6,10 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
 }else{
   $row=mysqli_fetch_assoc((mysqli_query($conn,$sql_by_id)));
   $nom=$row["email"];
+  if(isset($_POST["btn"])){
+  $sql="insert into products_sale(id_user,id_pro) values(".mysqli_fetch_assoc((mysqli_query($conn,
+  "SELECT id FROM SELECT_USERS")))["id"].",".$_POST["products"].")";
+mysqli_query($conn,$sql);}
 }
 
 ?>
@@ -67,6 +71,34 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
 
       </div>
       <div class="flex_r" id="products">
+        <?php 
+       $n=20;
+         for($i=1;$i<$n+1;$i++){
+          
+              echo"
+              <div class=\"product".$i."\" id=\"product\">
+              <div class=\"product".$i."_img product_img\">
+              <img src=\"../img/stock/stock".$i."_img.jpg\" alt=\"img".$i."\">
+            </div>
+            <h1>Pc Laptob 350G sdd</h1>
+            <div class=\"product".$i."_price product_price\">
+              <a><h2>Price $91</h2></a>
+              <h2>$103</h2>
+            </div>
+            <form action=\"index.php\" method=\"post\">
+              <input name=\"products\" value=\"".$i."\" style=\"display: none;\">
+              <div class=\"panier_paye\">
+                <h1 class=\"paye\" name=\"paye\">Payer</h1>
+                <button name=\"btn\">
+                  <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"Pc Laptob 350G sdd\"></i>
+                </button>
+              </div>
+            </form>
+            </div>
+                  ";
+         }
+       
+       ?> 
       </div>
     </main>
     <footer>
