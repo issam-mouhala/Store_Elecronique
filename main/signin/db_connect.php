@@ -14,5 +14,10 @@ mysqli_query($conn,$sql);
 $sql="CREATE TABLE IF NOT EXISTS Products_sale(id_spro INT AUTO_INCREMENT  PRIMARY KEY,id_pro int,id_user int,date timestamp,FOREIGN KEY (id_pro) REFERENCES Products(id_s) ,
 FOREIGN KEY (id_user) REFERENCES USERS(id) )";
 mysqli_query($conn,$sql);
+// $n=10;
+// for($i=0;$i<$n+1;$i++){
+//     $sql="UPDATE  products set Image='../img/stock/stock_img".$i.".jpg' where id_s=$i";
+//     mysqli_query($conn,$sql);
+// }
 
 ?> 

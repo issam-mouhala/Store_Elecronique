@@ -1,15 +1,24 @@
 <?php 
 include("../signin/db_connect.php");
 $sql_by_id="SELECT * FROM USERS WHERE id=(SELECT id FROM SELECT_USERS)";
+  $user=mysqli_fetch_assoc((mysqli_query($conn,
+    "SELECT id FROM SELECT_USERS")))["id"];
 if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
   $nom="Guest";
 }else{
   $row=mysqli_fetch_assoc((mysqli_query($conn,$sql_by_id)));
   $nom=$row["email"];
   if(isset($_POST["btn"])){
-  $sql="insert into products_sale(id_user,id_pro) values(".mysqli_fetch_assoc((mysqli_query($conn,
-  "SELECT id FROM SELECT_USERS")))["id"].",".$_POST["products"].")";
-mysqli_query($conn,$sql);}
+    $sql="SELECT *  FROM products_sale where id_user=$user and id_pro=".$_POST['products']."";
+    $r= mysqli_query($conn,$sql);
+      if(mysqli_num_rows($r)<=0){
+          $sql="insert into products_sale(id_user,id_pro) values(".$user.",".$_POST["products"].")";
+  mysqli_query($conn,$sql);
+  header("location: index.php");
+      }
+  
+  
+  }
 }
 
 ?>
@@ -46,7 +55,15 @@ mysqli_query($conn,$sql);}
         <li><a href="" id="a">Option3</a></li>
         <li><a href="" id="a">Option4</a></li>
         <div id="sale_display" ><ol></ol></div>
-        <li id="sale_inc" data-click="false"><i class="fa-solid fa-cart-plus"><span id="sale">0</span></i></li>
+        <li id="sale_inc" data-click="false"><i class="fa-solid fa-cart-plus">
+          <span id="sale">
+          <?php
+          $sql="SELECT COUNT(id_user) as sum FROM products_sale where id_user=$user ";
+       $r= mysqli_query($conn,$sql);
+       echo  mysqli_fetch_assoc($r)["sum"];
+
+        ?>
+        </span></i></li>
         <?php
         if($nom=="Guest"){
           echo '<li class="signin"><a id="signin"href="../signin/signin.php" >Sign In<i class="fa-solid fa-chevron-down"></i></a></li>
@@ -72,31 +89,35 @@ mysqli_query($conn,$sql);}
       </div>
       <div class="flex_r" id="products">
         <?php 
-       $n=20;
-         for($i=1;$i<$n+1;$i++){
-          
-              echo"
-              <div class=\"product".$i."\" id=\"product\">
-              <div class=\"product".$i."_img product_img\">
-              <img src=\"../img/stock/stock_img".$i.".jpg\" alt=\"img".$i."\">
-            </div>
-            <h1>Pc Laptob 350G sdd</h1>
-            <div class=\"product".$i."_price product_price\">
-              <a><h2>Price $91</h2></a>
-              <h2>$103</h2>
-            </div>
-            <form action=\"index.php\" method=\"post\">
-              <input name=\"products\" value=\"".$i."\" style=\"display: none;\">
-              <div class=\"panier_paye\">
-                <h1 class=\"paye\" name=\"paye\">Payer</h1>
-                <button name=\"btn\">
-                  <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"Pc Laptob 350G sdd\"></i>
-                </button>
-              </div>
-            </form>
-            </div>
-                  ";
-         }
+        $sql="SELECT * FROM products";
+       $r= mysqli_query($conn,$sql);
+        $i=0;
+       while($row=mysqli_fetch_assoc($r)){
+      
+          $i++;
+          echo"
+          <div class=\"product".$i."\" id=\"product\">
+          <div class=\"product".$i."_img product_img\">
+          <img src=\"".$row["Image"]."\" alt=\"img".$i."\">
+        </div>
+        <h1>".$row["name"]."</h1>
+        <div class=\"product".$i."_price product_price\">
+          <a><h2>Price $".$row["Price"]."</h2></a>
+          <h2>$".$row["Solde"]."</h2>
+        </div>
+        <form action=\"index.php\" method=\"post\">
+          <input name=\"products\" value=\"".$i."\" style=\"display: none;\">
+          <div class=\"panier_paye\">
+            <h1 class=\"paye\" name=\"paye\">Payer</h1>
+            <button name=\"btn\">
+              <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"></i>
+            </button>
+          </div>
+        </form>
+        </div>
+              ";
+       }
+        
        
        ?> 
       </div>
@@ -116,3 +137,7 @@ mysqli_query($conn,$sql);}
        </script>
   </body>
 </html>
+<?php
+
+
+?>

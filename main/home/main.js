@@ -86,46 +86,7 @@ let span=document.querySelector("#sale");
 let sale_inc=document.querySelector("#sale_inc");
 let sale_display=document.querySelector("#sale_display ol");
 let sale_displays=document.querySelector("#sale_display");
-product_price.forEach(e => {
-    e.onclick=()=>{
-        if(e.dataset.click=="false"){
-              let li=document.createElement("li");
-    let x=document.createElement("div");
-    x.innerText="x";
-    li.innerText=e.dataset.name_product;
-    x.id="x"
-    li.id="product_choise"
-    li.dataset.color=x.dataset.color=e.id;
-    const cdate= new Date();
-    x.className=li.className=e.id="panier"+cdate.getTime()
-    li.append(x)
-    span.innerText=parseInt( span.innerText)+1;
-    sale_display.appendChild(li)
-    e.style.backgroundColor="red";
-    e.dataset.click="true";
-    let input=document.querySelector("input");
-     
-    
-        }else{
-             e.style.backgroundColor="rgba(212, 80, 241, 0.337)";
-             span.innerText=parseInt( span.innerText)-1;
-           
-             document.querySelector("."+e.id).remove();
-             e.dataset.click="false";
-        }
-        let x=document.querySelectorAll("#x");
-x.forEach((e)=>{
-e.onclick=()=>{  
-    document.querySelector("#"+e.className).dataset.click=false;
-    document.querySelector("."+e.className).remove();
-    document.querySelector("#"+e.className).style.backgroundColor="rgba(212, 80, 241, 0.337)"
-    span.innerText=parseInt( span.innerText)-1;
-}
-
-})
-  
-}
-});
+product_price.forEach();
 sale_inc.onclick=()=>{
     if(sale_inc.dataset.click=="false"){
      sale_displays.style.display="block"; 
@@ -134,5 +95,6 @@ sale_inc.onclick=()=>{
         sale_displays.style.display="none";
         sale_inc.dataset.click="false"
     }
+
 
 }
