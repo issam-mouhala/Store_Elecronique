@@ -78,7 +78,7 @@ mysqli_query($conn,$sql);}
               echo"
               <div class=\"product".$i."\" id=\"product\">
               <div class=\"product".$i."_img product_img\">
-              <img src=\"../img/stock/stock".$i."_img.jpg\" alt=\"img".$i."\">
+              <img src=\"../img/stock/stock_img".$i.".jpg\" alt=\"img".$i."\">
             </div>
             <h1>Pc Laptob 350G sdd</h1>
             <div class=\"product".$i."_price product_price\">

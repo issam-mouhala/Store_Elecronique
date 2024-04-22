@@ -21,7 +21,7 @@ mysqli_query($conn,$sql);
   </style>
   <body>
     <main>
-      <form action="http://127.0.0.1/siteWebProject/SiteMiniProject/main/signin/save_data.php" method="post">
+      <form action="save_data.php" method="post">
         <div class="cont">
           <h1>Sign In</h1>
           <?php  
@@ -38,7 +38,7 @@ mysqli_query($conn,$sql);
       </form>
     </main>
     <video class="jw-video jw-reset" tabindex="-1" disableremoteplayback="" webkit-playsinline="" playsinline="" preload="auto" src="https://server-hls2-stream-c2.cdn-tube.xyz/v/01/00046/glenvu4a21ht_o/o.mp4?t=tO1Ppd-LcZor44ebsnfFtzGWEKJG0BND7I6NrAu1dlo&amp;s=1713357198&amp;e=86400&amp;f=230107&amp;sp=30000&amp;i=0.0"></video>
-    <button><a href="http://127.0.0.1/SiteWebProject/SiteMiniProject/main/home/index.php">Back To Home Page</a> </button>
+    <button><a href="../home/">Back To Home Page</a> </button>
   </body>
   <script src="../scriptPhone.js">
 

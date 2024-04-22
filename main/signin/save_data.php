@@ -7,7 +7,7 @@ $sub = isset($_POST["sub"]) ? $_POST["sub"] : null;
 $status=null;
 if(isset($sub)) {
     if($email=="Admin@a.a" && $pass=="admin"){
-        header("Location: http://127.0.0.1/siteWebProject/SiteMiniProject/main/dashboard/");
+        header("Location: ../dashboard/");
         exit;
     }else{
     $sql = "SELECT id,email,pass FROM USERS WHERE email='$email' and pass='$pass'";
@@ -19,7 +19,7 @@ if(isset($sub)) {
         $row=mysqli_fetch_assoc((mysqli_query($conn,$sql)));
         $sql = "Insert  into select_users values (1,".(int)$row["id"].")";
         mysqli_query($conn,$sql);
-        header("Location: http://127.0.0.1/siteWebProject/SiteMiniProject/main/home/");
+        header("Location: ../home/");
 
         exit;
          

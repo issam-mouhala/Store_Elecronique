@@ -35,7 +35,7 @@
             <li>option4</li>
             <li>option5</li>
         </ul>
-        <a href="http://127.0.0.1/siteWebProject/SiteMiniProject/main/signin/signin.php">  <h2 class="out">Out</h2></a>  
+        <a href="../signin/signin.php">  <h2 class="out">Out</h2></a>  
     </nav>
     <div class="dash">
          <div class="statique" >
