@@ -2,7 +2,8 @@
 include("../signin/db_connect.php");
 $sql_by_id="SELECT * FROM USERS WHERE id=(SELECT id FROM SELECT_USERS)";
   $user=mysqli_fetch_assoc((mysqli_query($conn,
-    "SELECT id FROM SELECT_USERS")))["id"];
+    "SELECT id FROM SELECT_USERS")))["id"]; 
+    $r2=mysqli_query($conn,"SELECT id_pro FROM products_sale where id_user=$user");
 if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
   $nom="Guest";
 }else{
@@ -11,7 +12,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
   if(isset($_POST["btn"])){
     $sql="SELECT *  FROM products_sale where id_user=$user and id_pro=".$_POST['products']."";
     $r= mysqli_query($conn,$sql);
-      if(mysqli_num_rows($r)<=0){
+      if(mysqli_num_rows($r)<=0){ 
           $sql="insert into products_sale(id_user,id_pro) values(".$user.",".$_POST["products"].")";
   mysqli_query($conn,$sql);
   header("location: index.php");
@@ -125,16 +126,27 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     <footer>
     </footer>
     <script>
+      let li;
       <?php
       include("main.js");
+      while($rows= mysqli_fetch_assoc($r2)){
+        $getpro="SELECT * from products where id_s=".$rows['id_pro']." ";
+           $r=mysqli_query($conn,$getpro);
+           $pro= mysqli_fetch_assoc($r);
+           $pro=$pro['name'];
+          echo "
+          li=document.createElement('ol')
+          li.innerText=\"".$pro."\"
+          sale_displays.append(li)";
+                    
+        }
+         
       ?>
         
     </script>
       <script src="../scriptPhone.js">
-      // .style.setProperty("--befor","b")
-      console.log( document.querySelector(":root"));
-       
        </script>
+       
   </body>
 </html>
 <?php

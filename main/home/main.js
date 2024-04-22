@@ -86,7 +86,7 @@ let span=document.querySelector("#sale");
 let sale_inc=document.querySelector("#sale_inc");
 let sale_display=document.querySelector("#sale_display ol");
 let sale_displays=document.querySelector("#sale_display");
-product_price.forEach();
+
 sale_inc.onclick=()=>{
     if(sale_inc.dataset.click=="false"){
      sale_displays.style.display="block"; 
