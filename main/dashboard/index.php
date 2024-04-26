@@ -11,16 +11,16 @@
       referrerpolicy="no-referrer"
     />
     <?php
+        include("../signin/db_connect.php");
+
     echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">';
     ?>
    <!-- <meta http-equiv="refresh" content="5"> -->
-    <link rel="stylesheet" href="design.css">
     <title>Dashboard</title>
 </head>
 <style>
     <?php
     include("design.css");  
-    include("../signin/db_connect.php");
 
     ?>
 </style>
@@ -74,7 +74,7 @@
     </div>
     <div class="Products screen"  data-class="Products">
     <h1>PRODUCTS</h1>
-        <table>
+        <table >
             <thead>
                 <tr>
                     <th>Id</th>
@@ -82,6 +82,7 @@
                     <th>Description</th>
                     <th>Price($)</th>
                     <th>Solde(%)</th>
+                    <th>Actions</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -139,7 +140,7 @@
                           <td><div><input   type=\"search\" name=\"solde\" id=\"\" value=\"\"></div></td>
                           <td>  
                           <div class=btn>
-                          <button type=\"submit\" name=\"add\" id=\"save\">Save</button>
+                          <button type=\"reset\" name=\"add\" id=\"save\">Save</button>
                           <button type=\"reset\" name=\"add\" id=\"remove\">Remove</button>
                           </div>
                            </td>
@@ -202,7 +203,7 @@
                  <tr>
             <td><div><input  readonly  type=\"search\" name=\"a\" id=\"idd\" value=\"".$top_data['id']."\"></div></td>
             <td><div><input   type=\"search\" name=\"username\" id=\"\" value=\"".$top_data['username']."\"></div></td>
-            <td><div><input   type=\"search\" name=\"email\" id=\"\" value=\"".$top_data['email']."\"></div></td>
+            <td><div><input   type=\"email\" name=\"email\" id=\"\" value=\"".$top_data['email']."\"></div></td>
             <td><div>************</div></td>
             <td>  
             <div class=btn>
@@ -225,7 +226,7 @@
                           <tr>
                           <td><div><input   readonly  type=\"search\" name=\"a\" id=\"id\" value=\"--\"></div></td>
                           <td><div><input   type=\"search\" name=\"username\" id=\"\" value=\"\"></div></td>
-                          <td><div><input   type=\"search\" name=\"email\" id=\"\" value=\"\"></div></td>
+                          <td><div><input id=\"email\"   type=\"email\" name=\"email\" id=\"\" value=\"\"></div></td>
                           <td><div><input   type=\"search\" name=\"password\" id=\"\" value=\"\"></div></td>
                           <td>  
                           <div class=btn>
@@ -346,7 +347,10 @@
                         message.setAttribute("class","alert alert-danger")
                         exit;
                     }
+                   
+                   
                  })
+                        
                  message.textContent="successfully User Add";
                         message.style.display="block"
                         message.setAttribute("class","alert alert-success")
@@ -360,4 +364,4 @@
 
 
 </body>
-</html>
+</html> 
