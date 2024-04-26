@@ -123,7 +123,7 @@
             }
             if ( $_POST['type']=="products") {
                 if (!empty($_POST['name']) &  !empty($_POST['price']) &  !empty($_POST['solde']) &  !empty($_POST['desc'])  ) {
-                    $sql="UPDATE products set name='".$_POST['name']."', price='".$_POST['price']."' ,solde='".$_POST['solde']."' , descreption='".$_POST['desc']."' where id_s='".$_POST['p']."'";
+                    $sql="UPDATE products set name='".$_POST['name']."', price='".$_POST['price']."' ,solde='".$_POST['solde']."' , descreption='".$_POST['desc']."',stock='".$_POST['stock']."' where id_s='".$_POST['p']."'";
                     $sql_query=mysqli_query($conn,$sql);
 
                 }
@@ -154,9 +154,17 @@
                 if ($_POST['type']=="saves") {
                     $sql="INSERT INTO USERS (username,email,pass) values ('".$_POST['username']."','".$_POST['email']."','".$_POST['password']."')";
                                     $sql_query=mysqli_query($conn,$sql);
-                                    header("location:index.php");
 
             }} 
+
+            if (!empty($_POST['name']) &  !empty($_POST['price']) &  !empty($_POST['solde']) &  !empty($_POST['desc'])  ) {
+                if ($_POST['type']=="saves1") {
+                $sql="INSERT INTO products (name,price,solde,descreption,stock) values('".$_POST['name']."', '".$_POST['price']."' ,'".$_POST['solde']."' ,'".$_POST['desc']."','".$_POST['stock']."')";
+                $sql_query=mysqli_query($conn,$sql);
+
+            }}
+            header("location:index.php");
+
 
     }
 }

@@ -73,7 +73,7 @@
          </div>
     </div>
     <div class="Products screen"  data-class="Products">
-    <h1>PRODUCTS</h1>
+    <!-- <h1>PRODUCTS</h1> -->
         <table >
             <thead>
                 <tr>
@@ -82,8 +82,9 @@
                     <th>Description</th>
                     <th>Price($)</th>
                     <th>Solde(%)</th>
+                    <th>Stock</th>
                     <th>Actions</th>
-                    <th>Actions</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -98,11 +99,12 @@
                 ';
                  echo"
                  <tr>
-            <td><div><input readonly type=\"search\" name=\"p\" id=\"\" value=\"".$top_data['id_s']."\"></div></td>
+            <td><div><input readonly type=\"search\" name=\"p\" id=\"id\" value=\"".$top_data['id_s']."\"></div></td>
             <td><div><input   type=\"search\" name=\"name\" id=\"\" value=\"".$top_data['name']."\"></div></td>
             <td><div><input   type=\"search\" name=\"desc\" id=\"\" value=\"".$top_data['descreption']."\"></div></td>
-            <td><div><input   type=\"search\" name=\"price\" id=\"\" value=\"".$top_data['Price']."\"></div></td>
-            <td><div><input   type=\"search\" name=\"solde\" id=\"\" value=\"".$top_data['Solde']."\"></div></td>
+            <td><div><input   type=\"search\" name=\"price\" id=\"id\" value=\"".$top_data['Price']."\"></div></td>
+            <td><div><input   type=\"search\" name=\"solde\" id=\"id\" value=\"".$top_data['Solde']."\"></div></td>
+            <td><div><input   type=\"search\" name=\"stock\" id=\"id\" value=\"".$top_data['stock']."\"></div></td>
             <input  style='display:none'  type=\"search\" name=\"image\" id=\"\" value=\"".$top_data['Image']."\">
             <td>  
             <div class=btn>
@@ -113,6 +115,7 @@
             <input  style='display:none' type=\"search\" name=\"name\" id=\"\" value=\"".$top_data['name']."\">
             <input  style='display:none' type=\"search\" name=\"price\" id=\"\" value=\"".$top_data['Price']."\">
             <input style='display:none'  type=\"search\" name=\"solde\" id=\"\" value=\"".$top_data['Solde']."\">
+            <input style='display:none'   type=\"search\" name=\"stock\" id=\"\" value=\"".$top_data['stock']."\">
             <input  style='display:none'  type=\"search\" name=\"image\" id=\"\" value=\"".$top_data['Image']."\">
             <button type=\"submit\" name=\"afficher\">Afficher</button>
 
@@ -133,14 +136,16 @@
                           echo "
                           
                           <tr>
-                          <td><div><input readonly type=\"search\" name=\"p\" id=\"\" value=\"--\"></div></td>
+                          <td><div><input readonly type=\"search\" name=\"p\" id=\"id\" value=\"--\"></div></td>
                           <td><div><input   type=\"search\" name=\"name\" id=\"\" value=\"\"></div></td>
                           <td><div><input   type=\"search\" name=\"desc\" id=\"\" value=\"\"></div></td>
-                          <td><div><input   type=\"search\" name=\"price\" id=\"\" value=\"\"></div></td>
-                          <td><div><input   type=\"search\" name=\"solde\" id=\"\" value=\"\"></div></td>
+                          <td><div><input   style=\"width:150px\" type=\"search\" name=\"price\" id=\"\" value=\"\"></div></td>
+                          <td><div><input style=\"width:150px\"  type=\"search\" name=\"solde\" id=\"\" value=\"\"></div></td>
+                          <td><div><input  style=\"width:150px\" type=\"search\" name=\"stock\" id=\"\" value=\"\"></div></td>
+
                           <td>  
                           <div class=btn>
-                          <button type=\"reset\" name=\"add\" id=\"save\">Save</button>
+                          <button type=\"submit\" name=\"add\" id=\"save\">Save</button>
                           <button type=\"reset\" name=\"add\" id=\"remove\">Remove</button>
                           </div>
                            </td>
@@ -155,7 +160,7 @@
             <tfoot>
                 <tr>
                     <form action="index.php" method="post">
-                    <td colspan="6"><button name="btn1" type="submit"  id="add" >Add</button></td>
+                    <td colspan="7"><button name="btn1" type="submit"  id="add" >Add</button></td>
                     </form>
                 </tr>
             </tfoot>
@@ -192,7 +197,7 @@
             </thead>
             <tbody>
             <?php
-             $sql_data="select * from users ";
+             $sql_data="select *  from users ";
              $query_data=mysqli_query($conn,$sql_data);
             
             while ( $top_data=mysqli_fetch_assoc($query_data)) {
@@ -201,7 +206,7 @@
                 ';
                  echo"
                  <tr>
-            <td><div><input  readonly  type=\"search\" name=\"a\" id=\"idd\" value=\"".$top_data['id']."\"></div></td>
+            <td><div><input  readonly  type=\"search\" name=\"a\" id=\"id\" value=\"".$top_data['id']."\"></div></td>
             <td><div><input   type=\"search\" name=\"username\" id=\"\" value=\"".$top_data['username']."\"></div></td>
             <td><div><input   type=\"email\" name=\"email\" id=\"\" value=\"".$top_data['email']."\"></div></td>
             <td><div>************</div></td>
@@ -215,6 +220,7 @@
              ";
              echo '</form>';
             }
+          
              ?>
              <?php
              if (isset($_POST['btn2'])) {
@@ -290,7 +296,8 @@
             
             let desp=document.querySelector("#"+window.localStorage.getItem("li"))
             document.querySelector("."+desp.dataset.class).style.display="flex"
-              ;
+            desp.className="bg"
+           
                let nav_bar=document.querySelector(".nav_bar");
         nav_bar.onclick=()=>{                 
 
@@ -316,6 +323,12 @@
         }
         let screen=document.querySelectorAll(".screen");
               function main(th){
+                          th.className="bg";
+                          document.querySelectorAll("li").forEach((e)=>{
+                            if (e!=th) {
+                                e.removeAttribute("class")
+                            } 
+                          })
                   screen.forEach(e => {
                     
                     if(e.dataset.class==th.dataset.class){

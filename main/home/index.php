@@ -1,9 +1,13 @@
 <?php 
 include("../signin/db_connect.php");
 $sql_by_id="SELECT * FROM USERS WHERE id=(SELECT id FROM SELECT_USERS)";
-  $user=mysqli_fetch_assoc((mysqli_query($conn,
-    "SELECT id FROM SELECT_USERS")))["id"]; 
-    $r2=mysqli_query($conn,"SELECT id_pro FROM products_sale where id_user=$user");
+$by_id=mysqli_query($conn,
+    "SELECT id FROM SELECT_USERS");
+    if (mysqli_num_rows($by_id)>0) {
+      
+    
+  $user=mysqli_fetch_assoc($by_id)["id"]; 
+    $r2=mysqli_query($conn,"SELECT * FROM products_sale where id_user=$user");
 if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
   $nom="Guest";
 }else{
@@ -21,7 +25,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
   
   }
 }
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +59,9 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         <li><a  href="" id="a">Option2</a></li>
         <li><a href="" id="a">Option3</a></li>
         <li><a href="" id="a">Option4</a></li>
-        <div id="sale_display" ><ol></ol></div>
+        <div id="sale_display" >
+          <div class="top"></div>
+        </div>
         <li id="sale_inc" data-click="false"><i class="fa-solid fa-cart-plus">
           <span id="sale">
           <?php
@@ -122,11 +128,20 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
        
        ?> 
       </div>
+      <div class="displaye_paye">
+         <div class="hide">
+          x
+         </div>
+      </div>
     </main>
     <footer>
     </footer>
     <script>
       let li;
+      let h3;
+      let div;
+      let detils;
+      let x;
       <?php
       include("main.js");
       while($rows= mysqli_fetch_assoc($r2)){
@@ -134,9 +149,19 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
            $r=mysqli_query($conn,$getpro);
            $pro= mysqli_fetch_assoc($r);
            $pro=$pro['name'];
+           $date=$rows['date'];
           echo "
           li=document.createElement('ol')
-          li.innerText=\"".$pro."\"
+          detils=document.createElement('p')
+          x=document.createElement('x')
+          x.innerText='X'
+          x.id='x'
+          detils.innerText=\"".$pro."\"
+          div=document.createElement('div')
+          h3=document.createElement('h3')
+          h3.innerText=\"".$date."\"
+          div.append(detils,h3)
+          li.append(div,x)
           sale_displays.append(li)";
                     
         }

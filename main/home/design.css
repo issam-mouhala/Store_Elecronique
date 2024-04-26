@@ -10,6 +10,13 @@ img{
     width: 100px;
     display: inline;
 }
+.hide{
+    background-color: red;
+    padding: 20px;
+    top: 0;
+    right: 0;
+position: absolute;
+}
 .flex_r{
     display: flex;
     align-items: center;
@@ -190,24 +197,46 @@ nav >.nav >li:last-child:hover{
 }
 
 #sale_display{
-    width: 400px;
-    padding: 20px;
+    width: max-content;
+    padding: 2px;
     height: max-content;
     background-color: #ffffff69;
     position: absolute;
     transform: translate(500px,50px);
-    border-radius: 10px;
+    border-radius:30px;
     display: none;
     backdrop-filter: blur(4px);
     z-index: 1;
-    border: 1px dashed rgb(184, 184, 192);
     backdrop-filter: blur(6px);
+    border-top-left-radius: 0px;
+
 }
 #sale_inc{
     color: rgb(255, 255, 255);
     border: 0;
     font-size: xx-large;
 
+}
+#sale_display ol div{
+    font-size: x-large;
+    background-color: #242222e0;
+    width: 377px;
+    color: #fff0f0;
+    margin: 4px;
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+}
+
+#sale_display ol ,#sale_display ol div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sale_display ol h3{
+    font-size: medium;
+    float: right;
+    margin-left: 10px;
 }
 #sale{
     margin-left: 11px;
@@ -222,20 +251,10 @@ nav >.nav >li:last-child:hover{
 #sale_display:hover{
     display: block;
 }
-#sale_display ol li{
-    background-color: transparent;
-    border: 0;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    column-gap: 70px;
-    border-bottom: 2Px solid;
-    justify-content: space-between;
-}
+
 #x{
     font-weight: bolder;
-    background-color: rgb(76, 21, 102);
+    background-color: rgb(0, 0, 0);
     padding: 10px;
     border-radius: 3%;
     color: aliceblue;
@@ -436,4 +455,13 @@ img:hover{
 }
 .product_price >h2{
     font-size:medium;
+}
+.displaye_paye{
+    position: fixed;
+    height: 60vh;
+    width: 70vw;
+    background-color: rgb(0, 0, 0);
+    top: 30vh;
+    left: 17vw;
+    display: none;
 }

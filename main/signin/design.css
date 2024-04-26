@@ -15,10 +15,18 @@ body{
        background-attachment: fixed;
        background-size: cover;
        background-repeat: no-repeat; */
-       background-image: linear-gradient(190deg,#191919c7,#181818 ,rgb(0, 0, 0) ,#191919,#181818 );
+       background-image: linear-gradient(190deg,#191919c7,#181818 ,rgb(0, 0, 0) ,#191919,#2c2727 ),
+       linear-gradient(-190deg,#ffffffc7,#181818 ,rgb(22, 3, 48) ,#191919,#5c1b1b );
     }
     @keyframes chang_bg {
         
+    }
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
     }
 .cont{
     height: max-content;
@@ -30,6 +38,7 @@ body{
     align-items: center;
     row-gap: 30px;
     border-radius: 3%;
+    padding-top: 30px;
     overflow: hidden;
     backdrop-filter: blur(4px);
     box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.404),-3px 2px 20px rgba(141, 1, 184, 0.281),4px 2px 15px rgba(250, 246, 2, 0.349),4px 2px 20px rgba(4, 226, 215, 0.151),6px 2px 20px rgba(6, 174, 241, 0.192),-6px 2px 20px rgba(51, 1, 230, 0.199);
@@ -74,12 +83,12 @@ a{
 button{
     margin-top: 50px;
     width: 300px;
-    background-color: #000000e0;
+    background-color: #006effe0;
     border: 0;
     height: 50px;
     font-size: x-large;
     border-radius: 20px;
-    color: beige;
+    color: rgb(0, 0, 0);
     box-shadow: 2px 2px 4px rgb(251, 247, 255),4px 4px 4px rgb(0, 0, 0),6px 6px 4px #000000e0;
 }
 button a{
@@ -91,22 +100,19 @@ button:hover{
     box-shadow: -2px 2px 4px rgb(251, 247, 255),-4px 4px 4px rgb(0, 0, 0),-6px 6px 4px #000000e0;
 
 }
-h1,h2{
+h1{
     color: rgb(255, 255, 255);
 }
-h2:nth-child(2){
+h2:nth-child(1){
     color: crimson;
-    position: absolute;
-    transform: translateY(-200px);
 }
 @media  screen and (max-width:1000px) {
      body{
 background-color: aliceblue;     
-background-image: linear-gradient(60deg,rgb(251, 255, 252),rgb(212, 233, 21) 20%,rgb(255, 255, 255));
 }
         
   h1{
-    color: #000000;
+    color: #ffffff;
   }
         h2:last-child{
 font-size: inherit;
@@ -133,16 +139,18 @@ input:not(input[type="submit"]){
 
 }
 .signup{
-    clip-path: ellipse(50% 40% at 50% 100%);
     width: 42vw;
     background-color: #2c2a2a;
-    height: 150px;
-    margin-bottom: 0;
+    height: max-content;
+    padding: 4px;
+    border-radius: 6px;
+    margin-bottom: 0;    text-align: center;
+
 }
 .signup >a {
-    position: absolute;
-    text-align: center;
-    transform:translate(340px,80px) ;
     font-size: larger;
     color: aliceblue;
+}
+.alert{
+    position: relative;
 }

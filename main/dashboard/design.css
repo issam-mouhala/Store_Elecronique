@@ -4,7 +4,7 @@ body{
     display: grid;
     grid-template-columns: 20vw 1fr;
     grid-template-areas: "a b";
-    background-color:#1f2131;
+    background-color:#1a1717;
     color: aliceblue;
 scrollbar-width: 0;
 }
@@ -86,6 +86,11 @@ ul{
     grid-area: b;
     display: none;
     flex-direction: column;
+}
+.Products{
+    flex-direction: row;
+    justify-content: center;
+
 }
 .Products,.users{
     align-items: center;
@@ -238,10 +243,10 @@ a{
 }
 button{
     padding: 5px 20px;
-    background-color: black;
+    background-color: rgba(0, 195, 255, 0.678);
     border: 0;
     border-radius: 4px;
-    color: antiquewhite;
+    color: rgb(255, 227, 227);
     cursor: pointer;
 }
 /* .b_p::after{
@@ -343,7 +348,6 @@ table {
     background-color: transparent;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: max-content;
     box-shadow: 0px 0px 20px black;
     transform: translateX(10px);
   }
@@ -430,6 +434,9 @@ table {
     border: 0;
     outline: 0;
   }
+  input#id{
+width: 100px;
+  }
   #add{
     padding:  15px 40px;
     width: 100%;
@@ -438,6 +445,7 @@ table {
   input[value=""]:not(input#id){
     border: 2px solid red;
     background-color: #000000;
+    width: inherit;
   }
   #message{
     font-size: xx-large;
@@ -551,4 +559,10 @@ a{
 #remove{
     background-color: red;
 
+}
+input#idd{
+    width: 150px;
+}
+.bg{
+    background-color: rgb(64, 119, 64);
 }
