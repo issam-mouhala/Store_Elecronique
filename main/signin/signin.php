@@ -11,6 +11,9 @@ mysqli_query($conn,$sql);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php
+    echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">';
+    ?>
     <title>Lotchy store</title>
   </head>
   <style>
@@ -22,23 +25,23 @@ mysqli_query($conn,$sql);
   <body>
     <main>
       <form action="save_data.php" method="post">
+      <h1>Sign In</h1>
         <div class="cont">
-          <h1>Sign In</h1>
           <?php  
           if(isset($status)){
-            echo "<h2>$status</h2>";
+            echo ' <div class="alert alert-danger">
+            <strong>'.$status.'</strong> </div>';
           }
           ?>
           <input type="email" name="email" placeholder="Email" />
           <input type="password" name="password" placeholder="Password" />
-          <input type="submit" name="sub" value="Sign In" />
+          <input type="submit" name="sub" value="Sign In" class="btn btn-success" />
           <!-- <h2><a href="">Forgot password?</a> Or <a href="">Sign Up</a></h2> -->
           <h2 class="signup"><a href="">Sign Up</a></h2>
         </div>
       </form>
     </main>
-    <video class="jw-video jw-reset" tabindex="-1" disableremoteplayback="" webkit-playsinline="" playsinline="" preload="auto" src="https://server-hls2-stream-c2.cdn-tube.xyz/v/01/00046/glenvu4a21ht_o/o.mp4?t=tO1Ppd-LcZor44ebsnfFtzGWEKJG0BND7I6NrAu1dlo&amp;s=1713357198&amp;e=86400&amp;f=230107&amp;sp=30000&amp;i=0.0"></video>
-    <button><a href="../home/">Back To Home Page</a> </button>
+    <button class=" btn-primary disabled"><a href="../home/">Back To Home Page</a> </button>
   </body>
   <script src="../scriptPhone.js">
 
