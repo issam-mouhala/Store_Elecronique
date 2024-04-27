@@ -11,16 +11,26 @@ body{
        justify-content: center;
        align-items: center;
        flex-direction: column;
-       /* background-image: url("../img/formes-papier-psychedeliques-espace-copie.jpg");
+       background-image: url("../img/8275340.jpg");
+       backdrop-filter:blur(6px);
        background-attachment: fixed;
        background-size: cover;
-       background-repeat: no-repeat; */
-       background-image: linear-gradient(190deg,#191919c7,#181818 ,rgb(0, 0, 0) ,#191919,#2c2727 ),
-       linear-gradient(-190deg,#ffffffc7,#181818 ,rgb(22, 3, 48) ,#191919,#5c1b1b );
+       background-repeat: no-repeat;
+       /* background-image: linear-gradient(190deg,#191919c7,#181818 ,rgb(0, 0, 0) ,#191919,#2c2727 ),
+       linear-gradient(-190deg,#ffffffc7,#181818 ,rgb(22, 3, 48) ,#191919,#5c1b1b ); */
+       background-color: #ffffff;
     }
-    @keyframes chang_bg {
-        
-    }
+   nav{
+    position: absolute;
+    top: 0;
+    display: flex;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    border-bottom: 1px solid wheat;
+    
+   }
     form{
         display: flex;
         justify-content: center;
@@ -29,6 +39,11 @@ body{
 
     }
 .cont{
+    background-image: url("../img/8275340.jpg");
+    backdrop-filter:blur(6px);
+    background-attachment: fixed;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    background-size: cover;
     height: max-content;
     width: 40vw;
     border: 1px solid rgb(182, 173, 173);
@@ -38,14 +53,13 @@ body{
     align-items: center;
     row-gap: 30px;
     border-radius: 3%;
-    padding-top: 30px;
+    padding-top: 100px;
     overflow: hidden;
-    backdrop-filter: blur(4px);
+    /* backdrop-filter: blur(4px); */
     box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.404),-3px 2px 20px rgba(141, 1, 184, 0.281),4px 2px 15px rgba(250, 246, 2, 0.349),4px 2px 20px rgba(4, 226, 215, 0.151),6px 2px 20px rgba(6, 174, 241, 0.192),-6px 2px 20px rgba(51, 1, 230, 0.199);
 }
 input{
     height: 50px;
-    width: 50% ;  
     font-size: large;
     padding-left: 10px;
    border-radius: 5px;
@@ -53,20 +67,26 @@ input{
    outline: 0;
    border: 1px solid rgba(163, 156, 156, 0.781);
    color: aliceblue;
+   background-color: transparent;
 
 }
 input[type="submit"]{
     margin-top: 20px;
     background-color: #ff004ca2;
-    color: aliceblue; 
+    color: rgb(254, 255, 255); 
         width: 40% ; 
            cursor: pointer;
  
 
 }
-input::placeholder{
+.input-group{
+    width: 400px;
+
+}
+.input-group > input::placeholder{
     font-size: large;
     padding-left: 10px;   
+    color: #000000b2;
 
 
 }
@@ -81,24 +101,18 @@ a{
 
 }
 button{
-    margin-top: 50px;
-    width: 300px;
-    background-color: #006effe0;
+    background-color: transparent;
     border: 0;
-    height: 50px;
+    margin-top: 15px;
     font-size: x-large;
-    border-radius: 20px;
     color: rgb(0, 0, 0);
-    box-shadow: 2px 2px 4px rgb(251, 247, 255),4px 4px 4px rgb(0, 0, 0),6px 6px 4px #000000e0;
 }
 button a{
-    margin: 20px;
     text-decoration: none;
     color: beige;
 }
 button:hover{
-    box-shadow: -2px 2px 4px rgb(251, 247, 255),-4px 4px 4px rgb(0, 0, 0),-6px 6px 4px #000000e0;
-
+scale: 1.1;
 }
 h1{
     color: rgb(255, 255, 255);
@@ -152,5 +166,31 @@ input:not(input[type="submit"]){
     color: aliceblue;
 }
 .alert{
-    position: relative;
+    position: absolute;
+    top: 30px;
+    
+}
+h1.by{
+    bottom: 0;
+    left: 100px;
+    position: absolute;
+    font-size: large;
+}
+h1.titre{
+    text-decoration: underline;
+    font-family:Tahoma;
+  
+}
+.lang > h1{
+font-size: large;
+position: absolute;
+bottom:  0;
+right: 80px;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
+}
+a{
+    color: #ffffff;
 }

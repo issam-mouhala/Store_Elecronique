@@ -12,8 +12,15 @@ if(isset($sub)) {
     }else{
     $sql = "SELECT id,email,pass FROM USERS WHERE email='$email' and pass='$pass'";
     if(mysqli_num_rows(mysqli_query($conn,$sql))==0){
-        $status="Username Or Password Incorrect!";
-        include("signin.php");
+        if ($_POST["lang"]=="ar") {
+            $status="الحساب او كلمةالسر خاطئة";
+            include("signinar.php");
+
+        }else{
+             $status="Username Or Password Incorrect!";        include("signin.php");
+
+        }
+       
         exit;
     }else{
         $row=mysqli_fetch_assoc((mysqli_query($conn,$sql)));

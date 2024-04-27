@@ -62,12 +62,14 @@
        top_pro.textContent= " '.$top_pro_name["name"].'";
        let d_price=document.querySelector(".d_pro #name p");
        d_price.textContent=" '.$top_pro_name["name"].'";
+       let d_image=document.querySelector(".d_pro #image img");
+       d_image.src=" '.$top_pro_name["Image"].'";
        let d_desc=document.querySelector(".d_pro #desc p");
        d_desc.textContent=" '.$top_pro_name["descreption"].'";
        let price=document.querySelector(".d_pro #price p");
        price.textContent="$'.$top_pro_name["Price"].'";
        let solde=document.querySelector(".d_pro #solde p");
-       solde.textContent=" '.$top_pro_name["Solde"].' %";
+       solde.textContent=" '.$top_pro_name["Solde"].'%";
        
         </script>';
         $sql_top_price="SELECT * FROM Products where price=(select MAX(price) FROM Products)";
@@ -91,7 +93,7 @@
         $sql_top_user="select * from users where id=(SELECT id_user FROM products_sale  GROUP BY id_user ORDER BY count(id_user) DESC LIMIT 1)";
         $query_top_user=mysqli_query($conn,$sql_top_user);
         $top_user=mysqli_fetch_assoc($query_top_user);
-    
+    if(mysqli_num_rows( $query_top_user)>0){
         echo '
         <script>
          top_pro=document.querySelector("#best_user");
@@ -102,7 +104,7 @@
         d_desc.textContent="'.$top_user["email"].'";
         </script>
         
-        ';
+        ';}
         $message=null;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             

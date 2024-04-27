@@ -52,23 +52,23 @@
          </div>
          <div class="controller">
          <div><div class="b_u"><span  id="best_user">Null</span></div><h1>Top User</h1><button data-s="0" onclick="display('d_user',this)">More Detaills</button><div class="detaills d_user">
-         <div id="image" class="info"><div  class="label"></div><p></p></div>
-         <div id="username" class="info"><div  class="label">Name : </div><p></p></div>
-        <div id="email" class="info"><div  class="label">Email: </div><p> </p></div>
+         <div id="image" class="info"><div  class="label"></div><p>..</p></div>
+         <div id="username" class="info"><div  class="label">Name : </div><p>Not Found </p></div>
+        <div id="email" class="info"><div  class="label">Email: </div><p>Not Found </p></div>
         </div></div> 
          <div><div class="b_pro"><span  id="best_product">Null</span></div><h1>Top Product</h1><button data-s="0" onclick="display('d_pro',this)">More Detaills</button><div class="detaills d_pro">
-         <div id="image" class="info"><div  class="label"></div><p></p></div>
-         <div id="name" class="info"><div  class="label">Name : </div><p></p></div>
-        <div id="desc" class="info"><div  class="label">Description : </div><p> </p></div>
-        <div id="price"class="info" ><div  class="label">Price : </div><p></p></div>
-        <div id="solde" class="info"><div  class="label">Solde : </div><p></p></div>
+         <div id="image" class="info"><div  class="label"></div><img src=""></img></div>
+         <div id="name" class="info"><div  class="label">Name : </div><p>Not Found</p></div>
+        <div id="desc" class="info"><div  class="label">Description : </div><p>Not Found </p></div>
+        <div id="price"class="info" ><div  class="label">Price : </div><p>Not Found</p></div>
+        <div id="solde" class="info"><div  class="label">Solde : </div><p>Not Found</p></div>
         </div></div>
          <div><div class="b_p"><span  id="best_price">Null</span></div><h1>Top Price</h1><button data-s="0" onclick="display('d_price',this)">More Detaills</button><div class="detaills d_price">
-         <div id="image" class="info"><div  class="label"></div><p></p></div>
-         <div id="name" class="info"><div  class="label">Name : </div><p></p></div>
-        <div id="desc" class="info"><div  class="label">Description : </div><p> </p></div>
-        <div id="price"class="info" ><div  class="label">Price : </div><p></p></div>
-        <div id="solde" class="info"><div  class="label">Solde : </div><p></p></div>
+         <div id="image" class="info"><div  class="label"></div><p>...</p></div>
+         <div id="name" class="info"><div  class="label">Name : </div><p>Not Found</p></div>
+        <div id="desc" class="info"><div  class="label">Description : </div><p>Not Found</p></div>
+        <div id="price"class="info" ><div  class="label">Price : </div><p>Not Found</p></div>
+        <div id="solde" class="info"><div  class="label">Solde : </div><p>Not Found</p></div>
          </div></div>  
          </div>
     </div>

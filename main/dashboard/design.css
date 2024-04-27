@@ -206,8 +206,8 @@ ul li:last-child{
     box-shadow: 1px 1px 2px rgb(255, 249, 249);
 }
 ul li:first-child{
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 0;
     box-shadow: 1px -1px 2px rgb(255, 249, 249);
 }
 @keyframes progress {
@@ -328,7 +328,7 @@ display: inline;
 }
 .detaills{
 width: 400px;
-background-color: #0c0b0f;
+background-color: #0c0b0f3f;
 border-radius:7px;
 height: 25vh;
 visibility: hidden;
@@ -336,9 +336,13 @@ position: relative;
 }
 .info{
     display: flex;
-    align-items: center;
-    justify-content: baseline;
+    justify-content: flex-start;
     margin-left: 20px;
+    font-size: larger;
+}
+.info img{
+    width: 50px;
+    transform: translate(150px);
 }
 .label{
     color: red;

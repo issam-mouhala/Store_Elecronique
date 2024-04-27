@@ -218,13 +218,13 @@ nav >.nav >li:last-child:hover{
 
 }
 #sale_display ol div{
-    font-size: x-large;
+    font-size: large;
     background-color: #242222e0;
     width: 377px;
     color: #fff0f0;
     margin: 4px;
-    border-radius: 20px;
-    border-top-left-radius: 0px;
+    padding: 4px;
+    
 }
 
 #sale_display ol ,#sale_display ol div{
@@ -235,8 +235,8 @@ nav >.nav >li:last-child:hover{
 
 #sale_display ol h3{
     font-size: medium;
-    float: right;
-    margin-left: 10px;
+    float: left;
+    margin-left: 4px;
 }
 #sale{
     margin-left: 11px;

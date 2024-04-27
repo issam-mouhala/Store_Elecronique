@@ -3,16 +3,15 @@ include("../signin/db_connect.php");
 $sql_by_id="SELECT * FROM USERS WHERE id=(SELECT id FROM SELECT_USERS)";
 $by_id=mysqli_query($conn,
     "SELECT id FROM SELECT_USERS");
+    $nom="Guest";
     if (mysqli_num_rows($by_id)>0) {
       
-    
   $user=mysqli_fetch_assoc($by_id)["id"]; 
     $r2=mysqli_query($conn,"SELECT * FROM products_sale where id_user=$user");
 if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
-  $nom="Guest";
 }else{
   $row=mysqli_fetch_assoc((mysqli_query($conn,$sql_by_id)));
-  $nom=$row["email"];
+  $nom=$row["username"];
   if(isset($_POST["btn"])){
     $sql="SELECT *  FROM products_sale where id_user=$user and id_pro=".$_POST['products']."";
     $r= mysqli_query($conn,$sql);
@@ -65,10 +64,13 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         <li id="sale_inc" data-click="false"><i class="fa-solid fa-cart-plus">
           <span id="sale">
           <?php
+            if (mysqli_num_rows($by_id)>0) {
           $sql="SELECT COUNT(id_user) as sum FROM products_sale where id_user=$user ";
        $r= mysqli_query($conn,$sql);
        echo  mysqli_fetch_assoc($r)["sum"];
-
+            }else{
+              echo 0;
+            }
         ?>
         </span></i></li>
         <?php
