@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
       a.forEach((e) => {
         let url = new URL(e.href);
         // Replace only the hostname part of the URL
-        url.hostname = '192.168.1.10';
+        url.hostname = '';
         e.href = url.href;
       });
     }
