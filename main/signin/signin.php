@@ -123,7 +123,7 @@ mysqli_query($conn,$sql);
     <div class="lang">
                 <h1><a href="signinar.php">-عربية-</a></h1>
     </div>
-    <h1 class="by">Create By IssaM MouhalA</h1>
+    <h1 class="by">Created By IssaM MouhalA</h1>
   </body>
   <script src="../scriptPhone.js">
 
