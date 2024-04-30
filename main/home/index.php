@@ -89,10 +89,10 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     </nav>
     <main>
     <div id="switch_imgs" data-i="2">
-        <img src="../img/stock/stock_img3.jpg" alt="" >
-        <img src="../img/stock/stock_img4.jpg"  >
-        <img src="../img/stock/stock_img9.jpg" >
-        <img src="../img/stock/stock_img10.jpg" >
+        <img src="../img/stock/stock_img11.png" alt="" >
+        <img src="../img/stock/stock_img12.png"  >
+        <img src="../img/stock/stock_img13.png" >
+        <img src="../img/stock/stock_img14.png" >
         <img src="../img/stock/stock_img2.jpg" >
 
       </div>
@@ -102,24 +102,24 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
        $r= mysqli_query($conn,$sql);
         $i=0;
        while($row=mysqli_fetch_assoc($r)){
-      
-          $i++;
           echo"
           <div class=\"product".$i."\" id=\"product\">
+          <div class=\"before\">
+          ".$row["Solde"]."%
+        </div>
           <div class=\"product".$i."_img product_img\">
           <img src=\"".$row["Image"]."\" alt=\"img".$i."\">
         </div>
         <h1>".$row["name"]."</h1>
         <div class=\"product".$i."_price product_price\">
-          <a><h2>Price $".$row["Price"]."</h2></a>
-          <h2>$".$row["Solde"]."</h2>
+          <a><h2>Price $".$row["Price"]-($row["Price"]*($row["Solde"]/100))."</h2></a>
+          <h2>$".$row["Price"]."</h2>
         </div>
         <form action=\"index.php\" method=\"post\">
-          <input name=\"products\" value=\"".$i."\" style=\"display: none;\">
+          <input name=\"products\" value=\"".$row['id_s']."\" style=\"display: none;\">
           <div class=\"panier_paye\">
-            <h1 class=\"paye\" name=\"paye\">Payer</h1>
             <button name=\"btn\">
-              <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"></i>
+              <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"><h4>Add to carte</h4></i>
             </button>
           </div>
         </form>
@@ -136,9 +136,12 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
          </div>
       </div>
     </main>
+    
     <footer>
     </footer>
     <script>
+             
+
       let li;
       let h3;
       let div;
@@ -152,10 +155,19 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
            $pro= mysqli_fetch_assoc($r);
            $pro=$pro['name'];
            $date=$rows['date'];
-          echo "
+          echo " 
+          form=document.createElement('form')
+          form.method='post'
+          form.action='index.php'
+
           li=document.createElement('ol')
           detils=document.createElement('p')
-          x=document.createElement('x')
+          x=document.createElement('button')
+          input=document.createElement('input')
+          input.name='idpro'
+          input.value=".$rows['id_pro']."
+          input.style.display='none'
+          x.name='delete'
           x.innerText='X'
           x.id='x'
           detils.innerText=\"".$pro."\"
@@ -164,15 +176,30 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
           h3.innerText=\"".$date."\"
           div.append(detils,h3)
           li.append(div,x)
-          sale_displays.append(li)";
+          form.append(li,input)
+
+          sale_displays.append(form)";
                     
         }
-         
+         if(isset($_POST['delete'])){
+          $getpro= $_POST['idpro'];
+          $getpro="DELETE from products_sale where id_user=$user AND id_pro=$getpro";
+          $r=mysqli_query($conn,$getpro);
+          header('location:index.php');
+         }
       ?>
-        
-    </script>
+         // Accéder aux variables CSS définies dans :root
+//     var rootStyles = getComputedStyle(document.documentElement);
+
+// // Récupérer la valeur des variables
+// var mainColor = rootStyles.getPropertyValue('--befor');
+
+// Afficher les valeurs
+  </script>
       <script src="../scriptPhone.js">
        </script>
+       
+
        
   </body>
 </html>

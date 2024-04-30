@@ -125,7 +125,7 @@
             }
             if ( $_POST['type']=="products") {
                 if (!empty($_POST['name']) &  !empty($_POST['price']) &  !empty($_POST['solde']) &  !empty($_POST['desc'])  ) {
-                    $sql="UPDATE products set name='".$_POST['name']."', price='".$_POST['price']."' ,solde='".$_POST['solde']."' , descreption='".$_POST['desc']."',stock='".$_POST['stock']."' where id_s='".$_POST['p']."'";
+                    $sql="UPDATE products set name='".$_POST['name']."', price='".$_POST['price']."' ,solde='".$_POST['solde']."' , descreption='".$_POST['desc']."',stock='".$_POST['stock']."',image='".$_POST['image']."' where id_s='".$_POST['p']."'";
                     $sql_query=mysqli_query($conn,$sql);
 
                 }
@@ -137,7 +137,12 @@
            
         }
         if (isset($_POST['delete']) ) {
+           
             if ( $_POST['type']=="users") {
+                $sql="delete from  select_users where id='".$_POST['a']."'";
+                $sql_query=mysqli_query($conn,$sql);
+                $sql="delete from products_sale where id_user='".$_POST['a']."'";
+                $sql_query=mysqli_query($conn,$sql);
             $sql="delete from  users where id='".$_POST['a']."'";
             $sql_query=mysqli_query($conn,$sql);
 
@@ -161,7 +166,7 @@
 
             if (!empty($_POST['name']) &  !empty($_POST['price']) &  !empty($_POST['solde']) &  !empty($_POST['desc'])  ) {
                 if ($_POST['type']=="saves1") {
-                $sql="INSERT INTO products (name,price,solde,descreption,stock) values('".$_POST['name']."', '".$_POST['price']."' ,'".$_POST['solde']."' ,'".$_POST['desc']."','".$_POST['stock']."')";
+                $sql="INSERT INTO products (name,price,solde,descreption,stock,image) values('".$_POST['name']."', '".$_POST['price']."' ,'".$_POST['solde']."' ,'".$_POST['desc']."','".$_POST['stock']."','".$_POST['image']."')";
                 $sql_query=mysqli_query($conn,$sql);
 
             }}

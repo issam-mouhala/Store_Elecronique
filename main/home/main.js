@@ -86,6 +86,7 @@ let span=document.querySelector("#sale");
 let sale_inc=document.querySelector("#sale_inc");
 let sale_display=document.querySelector("#sale_display ol");
 let sale_displays=document.querySelector("#sale_display");
+document.documentElement.style.setProperty('--befor', 'red');  
 
 sale_inc.onclick=()=>{
     if(sale_inc.dataset.click=="false"){
@@ -98,3 +99,4 @@ sale_inc.onclick=()=>{
 
 
 }
+  

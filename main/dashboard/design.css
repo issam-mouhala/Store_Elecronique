@@ -2,11 +2,12 @@ body{
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 20vw 1fr;
+    grid-template-columns: 20vw 80vw;
     grid-template-areas: "a b";
-    background-color:#1a1717;
-    color: aliceblue;
+    background-color:#ffffff;
+    color: rgb(0, 0, 0);
 scrollbar-width: 0;
+overflow: hidden;
 }
 /* Barre de défilement verticale */
 ::-webkit-scrollbar {
@@ -44,16 +45,18 @@ nav{
     flex-wrap: wrap;
     justify-content: center;
     border-right: 1px solid black;
-    border-radius: 30px;
+    background-color: #2D53DA;
     box-shadow: 2px 2px white,3px 3px rgb(138, 131, 131),4px 4px rgb(182, 175, 175) ;
+    clip-path: polygon(0% 15%, 0 0, 15% 0%, 96% 0, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 96% 100%, 15% 100%, 0 100%, 0% 85%);
 
+    
 }
 nav >div> h1{
-    background-color: rgb(0, 0, 0);
     padding: 20px;
-    color: aliceblue;
-    border-radius: 10px;
-    box-shadow: 2px 2px ,3px 3px rgb(0, 0, 0),4px 4px rgb(255, 255, 255) ;
+    color: rgb(0, 0, 0);
+    clip-path: polygon(0% 15%, 29% 6%, 15% 0%, 85% 0%, 100% 0, 100% 15%, 100% 85%, 73% 93%, 85% 100%, 15% 100%, 0 100%, 0% 85%);
+    background-color: #ffffff;
+
 }
 /* nav >div>img{
     width: 120px;
@@ -63,9 +66,7 @@ nav >div> h1{
     right: 0;
     position: absolute;
 } */
-li >img{
-    width: 100px;
-}
+
 ul{
     list-style: none;
     display: flex;
@@ -82,7 +83,7 @@ ul{
     display: none;
 }
 .Products,.users,.dash{
-    overflow: scroll;
+    overflow: hidden;
     grid-area: b;
     display: none;
     flex-direction: column;
@@ -96,7 +97,24 @@ ul{
     align-items: center;
 row-gap: 100px;
 }
-
+#recent >h1{
+    color: #3D3A53;
+}
+#recent{
+    padding: 20px;
+    box-shadow: -4px 4px 20px rgb(230, 229, 229) ;
+    border-radius: 20px;
+}
+#top5 {
+    font-size: large;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+#marquee{
+    display: flex;
+}
 .screen >h1{
     background-color: #3d3a53;
     padding: 20px;
@@ -105,8 +123,7 @@ row-gap: 100px;
 ul li{
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.178) ,rgba(0, 0, 0, 0.212) 80%);
     padding: 15px 120px;
-    font-size: xx-large;
-    border-top-right-radius: 20px;
+    font-size: x-large;
    transform: translateX(-20px);
    width: 80%;
    cursor: pointer;
@@ -114,6 +131,9 @@ ul li{
    display: flex;
    justify-content: space-around;
    column-gap: 20px;
+   color: #fffefe;
+   clip-path: polygon(0% 15%, 0 0, 15% 0%, 96% 0, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 96% 100%, 15% 100%, 0 100%, 0% 85%);
+
 
 }
 
@@ -123,12 +143,13 @@ ul li:hover{
 }
 .out{
     background-color: red;
-    padding: 20px 150px;
+    padding: 20px 90px;
     border-radius: 10px;
     transform: translateY(-20px);
     color: antiquewhite;
     display: flex;
     flex-wrap: wrap;
+    clip-path: polygon(0% 15%, 29% 6%, 15% 0%, 85% 0%, 100% 0, 100% 15%, 100% 85%, 73% 93%, 85% 100%, 15% 100%, 0 100%, 0% 85%);
 
 }
 .statique,.controller{
@@ -159,6 +180,15 @@ ul li:hover{
     border-bottom: 1px solid black;
 
 }
+#user{
+    padding:  3px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#user:hover{
+    background-color: #0099ff93;
+
+}
 .S1{
     background-color: rgb(209, 255, 3);
 }.S2{
@@ -180,22 +210,26 @@ ul li:hover{
     border-radius: 10px;
     overflow: hidden;
     transform: translateY(170px);
+    display: none;
 }
+
 #bar span{
-    background-color: rgb(126, 112, 126);
+    background-color: rgb(255, 0, 64);
     height: 100%;
     width: 0%;
     animation: progress 2s linear 1;
 transition: all 1s linear;
     position: absolute;
     border-right: 4px solid white;
+    display: block;
 }
 .s{
     width: max-content;
     padding: 20px;
     color: #3d3a53;
     text-shadow: 1px 1px 3px ;
-    box-shadow: 2px 2px 3px black , 4px 4px 3px rgb(255, 252, 252),6px 6px 3px rgb(51, 44, 51),8px 8px 3px rgb(0, 238, 255);
+    box-shadow: 0px 0px 20px rgb(194, 191, 191) ;
+
 }
 .s:first-child,.s:last-child{
     text-align: center;
@@ -236,10 +270,12 @@ a{
 }
 .controller div >span{
     border: 2px solid white;
-    box-shadow: 1px 1px 10px rgb(0, 0, 0),2px 2px 10px rgb(37, 37, 53);
     border-radius: 10px;
     padding: 20px;
+     color: #ffffff;
     font-weight: bolder;
+    font-size: xx-large;
+    background-color: red;
 }
 button{
     padding: 5px 20px;
@@ -328,11 +364,15 @@ display: inline;
 }
 .detaills{
 width: 400px;
-background-color: #0c0b0f3f;
+background-color: #2d52da00;
 border-radius:7px;
 height: 25vh;
 visibility: hidden;
 position: relative;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
 }
 .info{
     display: flex;
@@ -340,13 +380,18 @@ position: relative;
     margin-left: 20px;
     font-size: larger;
 }
+p{
+    color: #000000;
+    transform: translateY(2px);
+}
 .info img{
     width: 50px;
     transform: translate(150px);
+    display: none;
 }
 .label{
     color: red;
-    text-decoration: underline;
+    font-size: large;
 }
 table {
     background-color: transparent;
@@ -354,6 +399,8 @@ table {
     border-collapse: collapse;
     box-shadow: 0px 0px 20px black;
     transform: translateX(10px);
+    scale: 0.9;
+    width: 100%;
   }
   
   td, th {
@@ -361,44 +408,54 @@ table {
     text-align: center;
     /* font-size: large; */
     box-shadow: 0px 0px 2px rgb(255, 255, 255);
-    width: auto;
     padding: 4px;
     
   }
   tr:nth-child(even) {
-    background-color: #202020;
+    background-color: #494747;
   }
   td:first-child >div{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(223, 216, 216);
     padding: 2px;
     border-radius: 4px ;
   }
   td:nth-child(2)>div{
-    background-color: rgba(0, 0, 0, 0.39);
+    background-color: rgb(255, 0, 0);
     padding: 2px;
     border-radius: 4px ;
   }
-  td:nth-child(3)>div{
-    background-color: rgba(94, 91, 93, 0.603);
+  td:nth-child(3)>div {
+    background-color: rgb(255, 0, 170);
     padding: 2px;
     border-radius: 4px ;
   }
   td:nth-child(4)>div{
-    background-color: rgba(80, 74, 56, 0.616);
+    background-color: rgb(255, 191, 0);
     padding: 2px;
     border-radius: 4px ;
   }
-  td:nth-child(5)>div{
-    background-color: rgba(70, 70, 70, 0.644);
+  td:nth-child(5)>div:not(div.btn){
+    background-color: rgb(255, 0, 200);
+    padding: 2px;
+    border-radius: 4px ;
+  }
+  td:nth-child(6)>div{
+    background-color: rgb(6, 226, 255);
+    padding: 2px;
+    border-radius: 4px ;
+  }
+  td:nth-child(7)>div{
+    background-color: rgba(6, 226, 255, 0.411);
     padding: 2px;
     border-radius: 4px ;
   }
   thead{
-    background-color: rgba(85, 79, 79, 0.671);
-    color: #ffffff;
+    background-color: rgba(9, 255, 243, 0.671);
+    color: #000000;
   }
-  td{
-    color: rgb(238, 188, 253);
+  td:not(#id){
+    color: rgb(17, 17, 27);
+    font-weight: bolder;
   }
   
   .span{
@@ -431,10 +488,10 @@ table {
     display: flex;
     align-items: center;
     flex-direction: column;
-    row-gap: 100px;
+    /* row-gap: 100px; */
   }
   input[type="search"]:focus{
-    background-color: #201E2B;
+    background-color: #ffffff;
     border: 0;
     outline: 0;
   }
@@ -445,10 +502,11 @@ width: 100px;
     padding:  15px 40px;
     width: 100%;
     font-size: xx-large;
+    color: #000000;
   }
   input[value=""]:not(input#id){
     border: 2px solid red;
-    background-color: #000000;
+    background-color: #fffcfc;
     width: inherit;
   }
   #message{
@@ -474,9 +532,16 @@ width: 100px;
     font-size: x-large;
   }
   .screen_pro > h1{
-    background-color: #202020b7;
+    background-color: #00ccffb7;
     border-radius: 10px;
     padding: 10px;
+    color: #fffcfc;
+  }
+  .screen > h1{
+    background-color: #fd0000b7;
+    border-radius: 10px;
+    padding: 10px;
+    color: #fffefe;
   }
   #product {
     background-color: #fffefe;
@@ -516,22 +581,22 @@ width: 100px;
     width: 200px;
     column-gap: 50px;
 }
-.panier_paye h1 {
-    background-color: rgba(201, 98, 224, 0.637);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 2px cornflowerblue;
-    cursor: pointer;
-    color: #000000;
-}
+
 .panier_paye >i {
-    background-color: rgba(232, 162, 247, 0.637);
-    border-radius: 10px;
+    background-color: rgb(255, 0, 64);
+    border-radius: 50px;
     cursor: pointer;
-    padding: 10px;
+    padding: 7px;
     font-size: 4rem;
     transform: translateY(4px);
-    color: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    box-shadow: 0px 2px 2px black;
+}
+.panier_paye >i>h4{
+    font-size: 16px;
 }
 .product_price >h2{
     text-decoration: line-through;
@@ -564,9 +629,11 @@ a{
     background-color: red;
 
 }
-input#idd{
-    width: 150px;
-}
 .bg{
-    background-color: rgb(64, 119, 64);
+    background-color: rgb(0, 255, 234);
+}
+
+.Products >h1{
+    position: absolute;
+    top: 5px;
 }

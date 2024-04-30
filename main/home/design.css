@@ -94,9 +94,8 @@ nav > .nav >li:hover{
 }
 #product{
     height: 400px;
-    width: 300px;
     padding: 50px;
-    box-shadow: 0px 0px 4px rgb(139, 243, 3) ;
+    box-shadow: 0px 0px 30px rgba(187, 189, 183, 0.658) ;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -176,6 +175,7 @@ nav > .nav >li:hover{
     width: max-content;
     height:50vh ;
     scale: 0.9;
+    box-shadow: 0px 0px 20px #d8d3d3;
 }
 #switch_img{
     width: 810px;
@@ -231,12 +231,13 @@ nav >.nav >li:last-child:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 10px;
+
 }
 
 #sale_display ol h3{
     font-size: medium;
     float: left;
-    margin-left: 4px;
 }
 #sale{
     margin-left: 11px;
@@ -278,10 +279,16 @@ nav >.nav >li:last-child:hover{
 }
 .panier_paye i{
     font-size: xx-large;
-    background-color: rgba(232, 162, 247, 0.637);
-    padding: 10px;
-    border-radius: 10px;
+    background-color:#f5102f;
+    padding: 7px;
+    color: #d8d3d3;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
     cursor: pointer;
+    column-gap: 10px;
+    box-shadow: 0px 2px 2px rgb(0, 0, 0);
 
 
 }
@@ -339,17 +346,14 @@ input[type="search"]::placeholder{
     margin: 0 6px 0 0;
     position: absolute;
 }
-:root{
-    --befor:"32%";
-}
-#product::after{
-    content: var(--befor,"0");
+
+.before{
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     color: crimson;
-    width: 80px;
+    width: 60px;
     height: 50px;
     border-radius: 8px;
     background-color: rgb(251, 253, 139);
@@ -464,4 +468,12 @@ img:hover{
     top: 30vh;
     left: 17vw;
     display: none;
+}
+h4{
+    display: inline;
+    font-size: small;
+}
+button{
+
+    background-color: transparent;
 }

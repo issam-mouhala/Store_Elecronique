@@ -25,11 +25,13 @@
     ?>
 </style>
 <body>
-              <div class="i" ><i class="fa-solid fa-bars nav_bar"  data-nav="0"></i></div>
+<div class="i" style="
+    display: none;
+"><i class="fa-solid fa-bars nav_bar" data-nav="0"></i></div>
 
     <nav>
         <div>  
-            <h1>Dashboard</h1>
+            <h1>Lotchy Store.</h1>
 <!-- <img src="../img/WhatsApp Image 2024-04-12 at 19.44.34.jpeg" alt="" srcset=""> -->
         </div>
       <ul>   <li onclick="main(this)" data-class="dash" id="li1"><i class="fa-solid fa-house"></i>Home</li>   
@@ -47,16 +49,35 @@
              <div><div class="S1 s"><div><i class="fa-solid fa-user-group"></i></div><span data-pro="0" id="users">0</span></div><h1>Users</h1><div id="bar"><span data-bar="0" id="users_bar"></span></div></div> 
              <div><div class="S2 s"><div><i class="fa-solid fa-bag-shopping"></i></div><span data-pro="0" id="products">0</span></div><h1>Products</h1><div id="bar" ><span data-bar="0" id="products_bar"></span></div></div>
              <div><div class="S3 s"><div><i class="fa-solid fa-hand-holding-dollar"></i></div>$<span data-price="0" id="price_totale">0</span></div><h1>Price Totale</h1><div id="bar"><span data-bar="0" id="price_totale_bar"></span></div></div>
+             <div id='recent'>
+                <h1>Recent Users</h1>
+                <div id="top5">
+         <?php
+             $sql_data="select username,date from users limit 5 ";
+             $query_data=mysqli_query($conn,$sql_data);
+            
+            while ( $users=mysqli_fetch_assoc($query_data)) {
+                echo '   
+                <div id="user" title="'.$users['date'].'" >
+                •ᴥ•
+                '. $users['username'].'
+                     
+                </div>
+        ';}
+        ?>
+                </div> </div>
              <!-- <div><div class="S4">0</div><h1>A</h1><div id="bar"><span></span></div></div> -->
              <!-- <div><div class="S5">0</div><h1>A</h1><div id="bar"><span></span></div></div>  -->
          </div>
          <div class="controller">
          <div><div class="b_u"><span  id="best_user">Null</span></div><h1>Top User</h1><button data-s="0" onclick="display('d_user',this)">More Detaills</button><div class="detaills d_user">
+        
          <div id="image" class="info"><div  class="label"></div><p>..</p></div>
          <div id="username" class="info"><div  class="label">Name : </div><p>Not Found </p></div>
         <div id="email" class="info"><div  class="label">Email: </div><p>Not Found </p></div>
         </div></div> 
          <div><div class="b_pro"><span  id="best_product">Null</span></div><h1>Top Product</h1><button data-s="0" onclick="display('d_pro',this)">More Detaills</button><div class="detaills d_pro">
+         
          <div id="image" class="info"><div  class="label"></div><img src=""></img></div>
          <div id="name" class="info"><div  class="label">Name : </div><p>Not Found</p></div>
         <div id="desc" class="info"><div  class="label">Description : </div><p>Not Found </p></div>
@@ -64,6 +85,7 @@
         <div id="solde" class="info"><div  class="label">Solde : </div><p>Not Found</p></div>
         </div></div>
          <div><div class="b_p"><span  id="best_price">Null</span></div><h1>Top Price</h1><button data-s="0" onclick="display('d_price',this)">More Detaills</button><div class="detaills d_price">
+         
          <div id="image" class="info"><div  class="label"></div><p>...</p></div>
          <div id="name" class="info"><div  class="label">Name : </div><p>Not Found</p></div>
         <div id="desc" class="info"><div  class="label">Description : </div><p>Not Found</p></div>
@@ -71,9 +93,10 @@
         <div id="solde" class="info"><div  class="label">Solde : </div><p>Not Found</p></div>
          </div></div>  
          </div>
+         
     </div>
     <div class="Products screen"  data-class="Products">
-    <!-- <h1>PRODUCTS</h1> -->
+    <h1>PRODUCTS</h1>
         <table >
             <thead>
                 <tr>
@@ -83,6 +106,7 @@
                     <th>Price($)</th>
                     <th>Solde(%)</th>
                     <th>Stock</th>
+                    <th>Image</th>
                     <th>Actions</th>
 
                 </tr>
@@ -105,6 +129,7 @@
             <td><div><input   type=\"search\" name=\"price\" id=\"id\" value=\"".$top_data['Price']."\"></div></td>
             <td><div><input   type=\"search\" name=\"solde\" id=\"id\" value=\"".$top_data['Solde']."\"></div></td>
             <td><div><input   type=\"search\" name=\"stock\" id=\"id\" value=\"".$top_data['stock']."\"></div></td>
+            <td><div><input   type=\"search\" name=\"image\" id=\"\" value=\"".$top_data['Image']."\"></div></td>
             <input  style='display:none'  type=\"search\" name=\"image\" id=\"\" value=\"".$top_data['Image']."\">
             <td>  
             <div class=btn>
@@ -130,18 +155,19 @@
             ?>
              <?php
              if (isset($_POST['btn1'])) {
-                echo '<form action="get_statique.php" method="post">
+                echo '<form action="get_statique.php" method="post"">
                 <input style="display:none"   type=\"hidden\" name="type"  value="saves1">
                 ';
                           echo "
                           
                           <tr>
                           <td><div><input readonly type=\"search\" name=\"p\" id=\"id\" value=\"--\"></div></td>
-                          <td><div><input   type=\"search\" name=\"name\" id=\"\" value=\"\"></div></td>
-                          <td><div><input   type=\"search\" name=\"desc\" id=\"\" value=\"\"></div></td>
-                          <td><div><input   style=\"width:150px\" type=\"search\" name=\"price\" id=\"\" value=\"\"></div></td>
-                          <td><div><input style=\"width:150px\"  type=\"search\" name=\"solde\" id=\"\" value=\"\"></div></td>
-                          <td><div><input  style=\"width:150px\" type=\"search\" name=\"stock\" id=\"\" value=\"\"></div></td>
+                          <td ><div><input     type=\"search\" name=\"name\" id=\"\" value=\"\"></div></td>
+                          <td  ><div><input     type=\"search\" name=\"desc\" id=\"\" value=\"\"></div></td>
+                          <td><div><input  style=\"width:100px\"  type=\"search\" name=\"price\" id=\"\" value=\"\"></div></td>
+                          <td><div><input   style=\"width:100px\" type=\"search\" name=\"solde\" id=\"\" value=\"\"></div></td>
+                          <td><div><input  style=\"width:100px\" type=\"search\" name=\"stock\" id=\"\" value=\"\"></div></td>
+                          <td><div><input         type=\"search\" name=\"image\" id=\"\" value=\"\"></div></td>
 
                           <td>  
                           <div class=btn>
@@ -160,7 +186,7 @@
             <tfoot>
                 <tr>
                     <form action="index.php" method="post">
-                    <td colspan="7"><button name="btn1" type="submit"  id="add" >Add</button></td>
+                    <td colspan="8"><button name="btn1" type="submit"  id="add" >Add</button></td>
                     </form>
                 </tr>
             </tfoot>
@@ -212,8 +238,8 @@
             <td><div>************</div></td>
             <td>  
             <div class=btn>
-            <button type=\"submit\" name=\"edite\" >Edite</button>
-            <button type=\"submit\" name=\"delete\">Delete</button>
+            <button type=\"submit\"  id=\"id\" name=\"edite\" >Edite</button>
+            <button type=\"submit\"  id=\"id\"  name=\"delete\">Delete</button>
             </div>
              </td>
              </tr>
@@ -234,10 +260,10 @@
                           <td><div><input   type=\"search\" name=\"username\" id=\"\" value=\"\"></div></td>
                           <td><div><input id=\"email\"   type=\"email\" name=\"email\" id=\"\" value=\"\"></div></td>
                           <td><div><input   type=\"search\" name=\"password\" id=\"\" value=\"\"></div></td>
-                          <td>  
+                          <td id=\"id\">  
                           <div class=btn>
-                          <button type=\"reset\" name=\"add\" id=\"save\">Save</button>
-                          <button type=\"reset\" name=\"add\" id=\"remove\">Remove</button>
+                          <button type=\"reset\"   name=\"add\" id=\"save\">Save</button>
+                          <button type=\"reset\"  name=\"add\" id=\"remove\">Remove</button>
                           </div>
                            </td>
                            </tr>
@@ -284,10 +310,8 @@
              <a><h2>$'.$_POST['price'].'</h2></a>
              <h2>$'.$_POST['solde'].'</h2>
              </div>
-             <div class=\"panier_paye\">
-             <h1 class=\"paye\" name=\"paye\">Payer</h1>
-              
-                <i class=\"fa-solid fa-cart-plus panier\" ></i>
+             <div class=\"panier_paye\">  
+                <i class=\"fa-solid fa-cart-plus panier\" ><h4>Add to carte</h4></i>
             </div>`
             
             ';}
@@ -356,7 +380,7 @@
                  input.forEach((e)=>{
                     if(e.value==""){
                         message.textContent="Complet Les Champs";
-                        message.style.display="block"
+                        message.style.display="flex"
                         message.setAttribute("class","alert alert-danger")
                         exit;
                     }
