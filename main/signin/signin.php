@@ -21,6 +21,7 @@ mysqli_query($conn,$sql);
 <?php   
      include("design.css");
 ?>
+
   </style>
   <body>
     <nav><h1 class="titre">Lotchy Store</h1>
@@ -55,7 +56,7 @@ mysqli_query($conn,$sql);
         <div class="button">
           <input type="submit" name="sub" value="Sign-in">
         </div>
-        <h2 class="signupbtn"><a href="">Sign Up</a></h2>
+        <h2 class="signupbtn" onclick="display('signup','signin')">Sign Up</h2>
       </form>
     </div>
   </div>
@@ -92,9 +93,8 @@ mysqli_query($conn,$sql);
           </div>
         </div>
         <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
+          <input type="radio" name="gender" id="dot-1" value="m">
+          <input type="radio" name="gender" id="dot-2" value="f">
           <span class="gender-title">Gender</span>
           <div class="category">
             <label for="dot-1">
@@ -105,16 +105,14 @@ mysqli_query($conn,$sql);
             <span class="dot two"></span>
             <span class="gender">Female</span>
           </label>
-          <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">Prefer not to say</span>
-            </label>
+        
           </div>
         </div>
         <div class="button">
           <input type="submit" value="Register">
         </div>
       </form>
+      <h2 class="signinbtn" onclick="display('signin','signup')">Sign In</h2>
     </div>
   </div>
       </div>
@@ -126,6 +124,17 @@ mysqli_query($conn,$sql);
     <h1 class="by">Created By IssaM MouhalA</h1>
   </body>
   <script src="../scriptPhone.js">
+            
+  </script>
+  <script>
+      function display(th,name) {
+                 th=document.querySelector("."+th)
+                th.style.display="block"
+                th.id="test"
+             document.querySelector("."+name).style.display="none"
+              }
+              
+             
 
   </script>
 </html>

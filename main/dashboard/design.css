@@ -118,7 +118,7 @@ row-gap: 100px;
 .screen >h1{
     background-color: #3d3a53;
     padding: 20px;
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 1px 1px 5px rgb(168, 164, 164);
 }
 ul li{
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.178) ,rgba(0, 0, 0, 0.212) 80%);
@@ -235,14 +235,14 @@ transition: all 1s linear;
     text-align: center;
 }
 ul li:last-child{
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 60px;
     border-top-right-radius: 0;
-    box-shadow: 1px 1px 2px rgb(255, 249, 249);
+    box-shadow: 1px 1px 20px rgb(255, 249, 249);
 }
 ul li:first-child{
-    border-top-right-radius: 20px;
+    border-top-right-radius: 60px;
     border-bottom-right-radius: 0;
-    box-shadow: 1px -1px 2px rgb(255, 249, 249);
+    box-shadow: 1px -1px 20px rgb(255, 249, 249);
 }
 @keyframes progress {
     from{
@@ -397,7 +397,7 @@ table {
     background-color: transparent;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    box-shadow: 0px 0px 20px black;
+    box-shadow: 0px 0px 20px rgb(221, 214, 214);
     transform: translateX(10px);
     scale: 0.9;
     width: 100%;
@@ -420,12 +420,12 @@ table {
     border-radius: 4px ;
   }
   td:nth-child(2)>div{
-    background-color: rgb(255, 0, 0);
-    padding: 2px;
-    border-radius: 4px ;
+    background-color: rgb(217, 255, 0);
+
+        border-radius: 4px ;
   }
   td:nth-child(3)>div {
-    background-color: rgb(255, 0, 170);
+    background-color: rgb(21, 255, 0);
     padding: 2px;
     border-radius: 4px ;
   }
@@ -538,10 +538,11 @@ width: 100px;
     color: #fffcfc;
   }
   .screen > h1{
-    background-color: #fd0000b7;
-    border-radius: 10px;
+    background-color: #c5b6b07a;
+    border-radius: 1px;
     padding: 10px;
     color: #fffefe;
+    text-shadow: 1px 1px 5px rgb(133, 128, 128);
   }
   #product {
     background-color: #fffefe;

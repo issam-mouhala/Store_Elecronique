@@ -97,6 +97,7 @@
     </div>
     <div class="Products screen"  data-class="Products">
     <h1>PRODUCTS</h1>
+            
         <table >
             <thead>
                 <tr>
@@ -162,11 +163,11 @@
                           
                           <tr>
                           <td><div><input readonly type=\"search\" name=\"p\" id=\"id\" value=\"--\"></div></td>
-                          <td ><div><input     type=\"search\" name=\"name\" id=\"\" value=\"\"></div></td>
-                          <td  ><div><input     type=\"search\" name=\"desc\" id=\"\" value=\"\"></div></td>
-                          <td><div><input  style=\"width:100px\"  type=\"search\" name=\"price\" id=\"\" value=\"\"></div></td>
-                          <td><div><input   style=\"width:100px\" type=\"search\" name=\"solde\" id=\"\" value=\"\"></div></td>
-                          <td><div><input  style=\"width:100px\" type=\"search\" name=\"stock\" id=\"\" value=\"\"></div></td>
+                          <td ><div><input     type=\"search\" name=\"name\" id=\"\" value=\"\" required></div></td>
+                          <td  ><div><input     type=\"search\" name=\"desc\" id=\"\" value=\"\" required></div></td>
+                          <td><div><input  style=\"width:100px\"  type=\"search\" name=\"price\" id=\"\" value=\"\" required></div></td>
+                          <td><div><input   style=\"width:100px\" type=\"search\" name=\"solde\" id=\"\" value=\"\" required></div></td>
+                          <td><div><input  style=\"width:100px\" type=\"search\" name=\"stock\" id=\"\" value=\"\" required></div></td>
                           <td><div><input         type=\"search\" name=\"image\" id=\"\" value=\"\"></div></td>
 
                           <td>  
@@ -257,9 +258,9 @@
                           
                           <tr>
                           <td><div><input   readonly  type=\"search\" name=\"a\" id=\"id\" value=\"--\"></div></td>
-                          <td><div><input   type=\"search\" name=\"username\" id=\"\" value=\"\"></div></td>
-                          <td><div><input id=\"email\"   type=\"email\" name=\"email\" id=\"\" value=\"\"></div></td>
-                          <td><div><input   type=\"search\" name=\"password\" id=\"\" value=\"\"></div></td>
+                          <td><div><input   type=\"search\" name=\"username\" id=\"\" value=\"\" required></div></td>
+                          <td><div><input id=\"email\"   type=\"email\" name=\"email\" id=\"\" value=\"\" required></div></td>
+                          <td><div><input   type=\"search\" name=\"password\" id=\"\" value=\"\" required></div></td>
                           <td id=\"id\">  
                           <div class=btn>
                           <button type=\"reset\"   name=\"add\" id=\"save\">Save</button>
@@ -282,7 +283,7 @@
                 </tr>
             </tfoot>
         </table>
-        
+       
 </div>
       <?php
       include("get_statique.php");

@@ -12,18 +12,23 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
 }else{
   $row=mysqli_fetch_assoc((mysqli_query($conn,$sql_by_id)));
   $nom=$row["username"];
-  if(isset($_POST["btn"])){
+  if(isset($_POST["btn"])){    
     $sql="SELECT *  FROM products_sale where id_user=$user and id_pro=".$_POST['products']."";
     $r= mysqli_query($conn,$sql);
       if(mysqli_num_rows($r)<=0){ 
           $sql="insert into products_sale(id_user,id_pro) values(".$user.",".$_POST["products"].")";
   mysqli_query($conn,$sql);
   header("location: index.php");
+
       }
-  
+    
   
   }
 }
+}else{
+  if(isset($_POST["btn"])){
+  
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -118,7 +123,12 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         <form action=\"index.php\" method=\"post\">
           <input name=\"products\" value=\"".$row['id_s']."\" style=\"display: none;\">
           <div class=\"panier_paye\">
-            <button name=\"btn\">
+            <button name=\"btn\" type=\"reset\" onclick=\"  let name='$nom'
+            if (name=='Guest') {
+                  document.querySelector('.signin_des').style.display='flex';
+            }else{
+                     this.type='submit';
+            }\">
               <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"><h4>Add to carte</h4></i>
             </button>
           </div>
@@ -139,6 +149,12 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     
     <footer>
     </footer>
+    <div class="signin_des">
+      <div class="x" onclick="document.querySelector('.signin_des').style.display='none'">
+        X
+      </div>
+    <div class="signin"><a id="signin"href="../signin/signin.php" >Sign In<i class="fa-solid fa-chevron-down"></i></a></div>
+    </div>
     <script>
              
 
@@ -147,6 +163,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
       let div;
       let detils;
       let x;
+       
       <?php
       include("main.js");
       while($rows= mysqli_fetch_assoc($r2)){
@@ -197,9 +214,10 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
 // Afficher les valeurs
   </script>
       <script src="../scriptPhone.js">
+        
        </script>
        
-
+ 
        
   </body>
 </html>
