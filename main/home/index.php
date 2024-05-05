@@ -201,7 +201,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
          if(isset($_POST['delete'])){
           $getpro= $_POST['idpro'];
           $getpro="DELETE from products_sale where id_user=$user AND id_pro=$getpro";
-          $r=mysqli_query($conn,$getpro);
+          mysqli_query($conn,$getpro);
           header('location:index.php');
          }
       ?>

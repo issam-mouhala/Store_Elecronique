@@ -3,8 +3,11 @@ include("db_connect.php");
 
 $email = $_POST["email"];
 $pass = $_POST["password"];
+
+
 $sub = isset($_POST["sub"]) ? $_POST["sub"] : null;
-$status=null;
+$signup=isset($_POST["signup"]) ? $_POST["signup"] : null;
+$status=$status2=null;
 if(isset($sub)) {
     if($email=="Admin@a.a" && $pass=="admin"){
         header("Location: ../dashboard/");
@@ -32,6 +35,22 @@ if(isset($sub)) {
          
     }}
 }      
-
+if(isset($signup)) {
+    $username=$_POST["username"];
+$phone=$_POST["phone"];
+    $sql = "SELECT email,pass FROM USERS WHERE email='$email' and pass='$pass'";
+    if(mysqli_num_rows(mysqli_query($conn,$sql))==0){
+        $sql = "INSERT INTO  USERS(email,pass,username,phone,gander) VALUES ('$email','$pass','$username','$phone','".$_POST["gender"]."')";
+        mysqli_query($conn,$sql);
+        $status2="success";
+    }else{
+        $status2="User Existe !";
+       
+    }
+    include("signin.php");
+    exit;
+    
+    
+    
+}
 mysqli_close($conn);
-?>

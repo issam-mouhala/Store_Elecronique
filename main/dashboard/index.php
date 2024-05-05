@@ -44,11 +44,32 @@
     </nav>
     <main></main>
     <div class="dash screen"  data-class="dash">
+<?php 
+ $sql_top_user="select COUNT(gander) f from users where gander='f'";
+ $query_top_user=mysqli_query($conn,$sql_top_user);
+ $f=mysqli_fetch_assoc($query_top_user);
+ $sql_top_user="select COUNT(gander) f from users where gander='m'";
+ $query_top_user=mysqli_query($conn,$sql_top_user);
+ $m=mysqli_fetch_assoc($query_top_user);
 
+?>
          <div class="statique" >
              <div><div class="S1 s"><div><i class="fa-solid fa-user-group"></i></div><span data-pro="0" id="users">0</span></div><h1>Users</h1><div id="bar"><span data-bar="0" id="users_bar"></span></div></div> 
              <div><div class="S2 s"><div><i class="fa-solid fa-bag-shopping"></i></div><span data-pro="0" id="products">0</span></div><h1>Products</h1><div id="bar" ><span data-bar="0" id="products_bar"></span></div></div>
              <div><div class="S3 s"><div><i class="fa-solid fa-hand-holding-dollar"></i></div>$<span data-price="0" id="price_totale">0</span></div><h1>Price Totale</h1><div id="bar"><span data-bar="0" id="price_totale_bar"></span></div></div>
+             <div><div class="S4 s"><div><i class="fa-solid fa-person"></i></div>
+             F:
+             <?php
+             echo $f['f']
+             
+             ?>
+             H:
+             <?php
+             echo $m['f']
+             
+             ?>
+            </div><h1>Gender</h1></div>
+
              <div id='recent'>
                 <h1>Recent Users</h1>
                 <div id="top5">

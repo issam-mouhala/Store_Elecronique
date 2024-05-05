@@ -61,31 +61,43 @@ mysqli_query($conn,$sql);
     </div>
   </div>
       </div>
-      <div class="signup">
+      <div class="signup" >
       <div class="container">
     <div class="title">Signup</div>
     <div class="content">
-      <form action="#">
+      <form action="save_data.php" method="post">
+      <?php  
+        if(isset($status2)){
+          if ($status2="success") {
+            echo ' <div class="alert alert-success">
+            <strong>'.$status2.'</strong> </div>';          }else{
+
+            echo ' <div class="alert alert-danger">
+            <strong>'.$status2.'</strong> </div>';
+          }
+         
+        }
+        ?>
         <div class="user-details">
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" required>
+            <input type="fullname" placeholder="Enter your name" required>
           </div>
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" required>
+            <input type="username" name="username" placeholder="Enter your username" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" required>
+            <input type="tel"  name="phone" placeholder="Enter your number" required>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
@@ -109,7 +121,7 @@ mysqli_query($conn,$sql);
           </div>
         </div>
         <div class="button">
-          <input type="submit" value="Register">
+          <input type="submit" name="signup" value="Register">
         </div>
       </form>
       <h2 class="signinbtn" onclick="display('signin','signup')">Sign In</h2>
@@ -127,11 +139,13 @@ mysqli_query($conn,$sql);
             
   </script>
   <script>
+    document.querySelector('.'+window.localStorage.getItem("input")).style.display="block"
       function display(th,name) {
                  th=document.querySelector("."+th)
                 th.style.display="block"
                 th.id="test"
              document.querySelector("."+name).style.display="none"
+             window.localStorage.setItem("input",th.className)
               }
               
              
