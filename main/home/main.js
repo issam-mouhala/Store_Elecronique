@@ -89,14 +89,20 @@ let sale_displays=document.querySelector("#sale_display");
 document.documentElement.style.setProperty('--befor', 'red');  
 
 sale_inc.onclick=()=>{
-    if(sale_inc.dataset.click=="false"){
-     sale_displays.style.display="block"; 
-     sale_inc.dataset.click="true"  
+    // if(sale_inc.dataset.click=="false"){
+    //  sale_displays.style.display="block"; 
+    //  sale_inc.dataset.click="true"  
+    // }else{
+    //     sale_displays.style.display="none";
+    //     sale_inc.dataset.click="false"
+    // }
+    if (document.querySelector("#name").textContent!="Guest") {
+        window.open("http://127.0.0.1/siteWebProject/SiteMiniProject/main/home/cart.php","-blank")
     }else{
-        sale_displays.style.display="none";
-        sale_inc.dataset.click="false"
+        document.querySelector('.signin_des').style.display='flex'
     }
 
 
 }
+
   

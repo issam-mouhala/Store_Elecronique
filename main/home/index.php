@@ -83,7 +83,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
           echo '<li class="signin"><a id="signin"href="../signin/signin.php" >Sign In<i class="fa-solid fa-chevron-down"></i></a></li>
           ';
         }else{
-          echo '<h3>'.$nom.'</h3><li><a id="signout" href="http://127.0.0.1/siteWebProject/SiteMiniProject/main/signin/signin.php">    
+          echo '<h3>Hello <u id="name">'.$nom.'</h3></u><li><a id="signout" href="http://127.0.0.1/siteWebProject/SiteMiniProject/main/signin/signin.php">    
           Sign Out</a></li>';
         }
         
@@ -166,38 +166,38 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
        
       <?php
       include("main.js");
-      while($rows= mysqli_fetch_assoc($r2)){
-        $getpro="SELECT * from products where id_s=".$rows['id_pro']." ";
-           $r=mysqli_query($conn,$getpro);
-           $pro= mysqli_fetch_assoc($r);
-           $pro=$pro['name'];
-           $date=$rows['date'];
-          echo " 
-          form=document.createElement('form')
-          form.method='post'
-          form.action='index.php'
+      // while($rows= mysqli_fetch_assoc($r2)){
+      //   $getpro="SELECT * from products where id_s=".$rows['id_pro']." ";
+      //      $r=mysqli_query($conn,$getpro);
+      //      $pro= mysqli_fetch_assoc($r);
+      //      $pro=$pro['name'];
+      //      $date=$rows['date'];
+      //     echo " 
+      //     form=document.createElement('form')
+      //     form.method='post'
+      //     form.action='index.php'
 
-          li=document.createElement('ol')
-          detils=document.createElement('p')
-          x=document.createElement('button')
-          input=document.createElement('input')
-          input.name='idpro'
-          input.value=".$rows['id_pro']."
-          input.style.display='none'
-          x.name='delete'
-          x.innerText='X'
-          x.id='x'
-          detils.innerText=\"".$pro."\"
-          div=document.createElement('div')
-          h3=document.createElement('h3')
-          h3.innerText=\"".$date."\"
-          div.append(detils,h3)
-          li.append(div,x)
-          form.append(li,input)
+      //     li=document.createElement('ol')
+      //     detils=document.createElement('p')
+      //     x=document.createElement('button')
+      //     input=document.createElement('input')
+      //     input.name='idpro'
+      //     input.value=".$rows['id_pro']."
+      //     input.style.display='none'
+      //     x.name='delete'
+      //     x.innerText='X'
+      //     x.id='x'
+      //     detils.innerText=\"".$pro."\"
+      //     div=document.createElement('div')
+      //     h3=document.createElement('h3')
+      //     h3.innerText=\"".$date."\"
+      //     div.append(detils,h3)
+      //     li.append(div,x)
+      //     form.append(li,input)
 
-          sale_displays.append(form)";
+      //     sale_displays.append(form)";
                     
-        }
+      //   }
          if(isset($_POST['delete'])){
           $getpro= $_POST['idpro'];
           $getpro="DELETE from products_sale where id_user=$user AND id_pro=$getpro";

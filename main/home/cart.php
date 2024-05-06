@@ -1,8 +1,41 @@
+
+<?php 
+include("../signin/db_connect.php");
+$by_id=mysqli_query($conn,
+    "SELECT id FROM SELECT_USERS");
+    $user=mysqli_fetch_assoc($by_id)["id"]; 
+    $r2=mysqli_query($conn,"SELECT * FROM products_sale where id_user=$user");
+    error_reporting(E_ALL ^ E_WARNING);
+
+?>
+<?php
+    if(isset($_POST['delete'])){
+        $getpro= $_POST['idpro'];
+        $getc="DELETE from commande where id_user=$user AND id_pro=$getpro";
+        mysqli_query($conn,$getc);
+        $getpro="DELETE from products_sale where id_user=$user AND id_pro=$getpro";
+        mysqli_query($conn,$getpro);
+       
+        header('Location:cart.php');
+        exit;
+    }
+    if (isset($_POST['add'])) {
+        $getpro="UPDATE  commande set qnt=".($_POST['q']+1)." where id_user=".$_POST['user']." and id_pro=".$_POST['idpro']."";
+        mysqli_query($conn,$getpro); 
+        header('Location:cart.php');
+        exit;
+          }
+          if (isset($_POST['sus']) && $_POST['q']>1 ) {
+            $getpro="UPDATE  commande set qnt=".($_POST['q']-1)." where id_user=".$_POST['user']." and id_pro=".$_POST['idpro']."";
+            mysqli_query($conn,$getpro); 
+            header('Location:cart.php');
+            exit;
+              }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Lotchy Store</title>
 </head>
 <style>
@@ -18,6 +51,16 @@ nav{
     height: 10vh;
     width: 100vw;
     background-color: #191919;
+    display: flex;
+    color: antiquewhite;
+    justify-content: space-between;
+}
+nav > h1 , nav > h2{
+    margin: auto 200px;
+}
+a{
+    color: aliceblue;
+    text-decoration: none;
 }
 main{
     height: max-content;
@@ -58,11 +101,12 @@ h4:last-child{
     margin: 20px;
 }
 button{
-    padding: 5px;
+    padding: 10px;
     background-color: transparent;
     border: none;
-    font-size: x-large;
+    font-size: xx-large;
     color: crimson;
+    border-radius: 150px;
     cursor: pointer;
 }
 .cader{
@@ -112,7 +156,7 @@ img{
     background-color: orangered;
     transform: translateX(20px);
     border: none;
-    font-size: x-large;
+    font-size: large;
     color: aliceblue;
 }
 .resume h1{
@@ -133,39 +177,66 @@ img{
     align-items: center;
     column-gap: 10px;
 }
-.q span{
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    border-radius: 50px;
+.q button{
+  padding: 4px;
+  background-color: orangered;
+  color: aliceblue;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+#stock{
+    border: 0;
+    font-size:x-large;
+    width: 50px;
+}
+#stock:focus{
+    outline: 0;
+    border: 0;
+}
+.vide{
     font-size: large;
-    border: 1px solid;
+    width: 100%;
+    text-align: center;
+   color: rgba(179, 166, 166, 0.377);
+
 }
 </style>
 <body>
     <nav>
-
+            <h1>Panier</h1>
+            <h2><a href="index.php">Home</a></h2>
     </nav>
     <div class="content">
 
-    <?php 
-include("../signin/db_connect.php");
-$by_id=mysqli_query($conn,
-    "SELECT id FROM SELECT_USERS");
-    $user=mysqli_fetch_assoc($by_id)["id"]; 
-    $r2=mysqli_query($conn,"SELECT * FROM products_sale where id_user=$user");
-   
-?>
     <main>
         <p>Panier</p>
+        
 <?php 
-   $sum=0;
- while($rows= mysqli_fetch_assoc($r2)){
+ if(mysqli_num_rows($r2)<=0) {
+    echo '<h3 class="vide">Votre panier est vide!</h3>';
+    # code...
+}   else{
+    while($rows= mysqli_fetch_assoc($r2)){
     $getpro="SELECT * from products where id_s=".$rows['id_pro']." ";
-       $r=mysqli_query($conn,$getpro);
-       $pro= mysqli_fetch_assoc($r);
-       $sum+=$pro['Price'];
-    echo '        <div class="panier">
+    $r=mysqli_query($conn,$getpro);
+    $pro= mysqli_fetch_assoc($r);
+    $getcommande="SELECT * from commande where id_user=".$rows['id_user']." and  id_pro=".$rows['id_pro']."";
+    $qcommande=mysqli_query($conn,$getcommande);
+    $commande= mysqli_fetch_assoc($qcommande);
+    $c=(isset($commande['qnt'])) ? $commande['qnt']: 1 ;
+    $sql="SELECT *  FROM commande where id_user=$user and id_pro=".$rows['id_pro']."";
+    $rr= mysqli_query($conn,$sql);
+    // $sum+=($pro["Price"]-($pro["Price"]*($pro["Solde"]/100)));
+       if(mysqli_num_rows($rr)<=0 && $rows['id_pro']==$pro['id_s']){ 
+        $getc="INSERT  INTO commande(id_user,id_pro,price,qnt)  VALUES(".$rows['id_user'].",".$rows['id_pro'].",".($pro["Price"]-($pro["Price"]*($pro["Solde"]/100))).",1 ) ";
+        mysqli_query($conn,$getc); 
+    }
+
+    echo '        <form class="panier" action="cart.php" method="post">
+    <input style="display:none" name="idpro" value="'.$rows['id_pro'].'">
     <div class="pro1" id="pro">
         <div class=" cader">
         <img src="'.$pro['Image'].'" alt="img">
@@ -184,17 +255,23 @@ $by_id=mysqli_query($conn,
               </div>
     </div>
     <div class="controller">
-             <button type="reset">Delete</button>
+             <button type="submit" name="delete">Delete</button>
              <div class="q">
-             <span>-</span>
-            <h2> '.$pro['stock'].'</h2>
-            <span>+</span>
+             <button type="submit" id="sus" name="sus" onclick="desc(this)">-</button>
+            <input id="stock" value="'.$c.'" name="q"  readonly>
+            <button type="submit"  name="add">+</button>
 
             </div>
+            
 
     </div>
-    </div>';
-}
+    <input style="display:none" name="user" value="'.$rows['id_user'].'">
+    <input style="display:none" name="idpro" value="'.$rows['id_pro'].'">
+
+    </form>';
+   
+    
+}}
 
 ?>
 
@@ -206,15 +283,41 @@ $by_id=mysqli_query($conn,
             <h3>Sous-total</h3>
             <span>
                 <?php
-                echo $sum
+                 $sum=0;
+                $gsum="SELECT SUM(price*qnt) as sum from commande where id_user=$user ";
+                $r=mysqli_query( $conn,$gsum);
+                if(mysqli_num_rows($r)>0){
+                    $sum=mysqli_fetch_assoc($r)['sum'];
+                }else{
+                    $sum=0;
+                }
+                $sum=($sum==null) ? 0: $sum;
+                echo $sum;
+
                 ?>$</span>
             <p>Frais de livraison non inclus a ce stade</p>
            </div>
            <hr>
           <button type="submit">COMMANDER($ <?php
+          
                 echo $sum
                 ?>)</button>
           </div>
           </div>
+   
 </body>
 </html>
+<script>
+   
+   
+    
+    function desc(th){
+        let stock=document.querySelectorAll("#stock")
+        if ( stock.value==1 ) {
+        th.style.backgroundColor="rgba(179, 166, 166, 0.377)"
+    } 
+    }
+    
+    
+
+</script>
