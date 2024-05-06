@@ -176,6 +176,7 @@ img{
     display: flex;
     align-items: center;
     column-gap: 10px;
+    transform: translateX(-30px);
 }
 .q button{
   padding: 4px;
@@ -258,7 +259,7 @@ img{
              <button type="submit" name="delete">Delete</button>
              <div class="q">
              <button type="submit" id="sus" name="sus" onclick="desc(this)">-</button>
-            <input id="stock" value="'.$c.'" name="q"  readonly>
+            <input id="stock" value="'.$c.'" name="q"  readonly type="number"  min="1" max="5">
             <button type="submit"  name="add">+</button>
 
             </div>
