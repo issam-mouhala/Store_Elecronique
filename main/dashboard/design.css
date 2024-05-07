@@ -412,42 +412,7 @@ table {
     
   }
   tr:nth-child(even) {
-    background-color: #494747;
-  }
-  td:first-child >div{
-    background-color: rgb(223, 216, 216);
-    padding: 2px;
-    border-radius: 4px ;
-  }
-  td:nth-child(2)>div{
-    background-color: rgb(217, 255, 0);
-
-        border-radius: 4px ;
-  }
-  td:nth-child(3)>div {
-    background-color: rgb(21, 255, 0);
-    padding: 2px;
-    border-radius: 4px ;
-  }
-  td:nth-child(4)>div{
-    background-color: rgb(255, 191, 0);
-    padding: 2px;
-    border-radius: 4px ;
-  }
-  td:nth-child(5)>div:not(div.btn){
-    background-color: rgb(255, 0, 200);
-    padding: 2px;
-    border-radius: 4px ;
-  }
-  td:nth-child(6)>div{
-    background-color: rgb(6, 226, 255);
-    padding: 2px;
-    border-radius: 4px ;
-  }
-  td:nth-child(7)>div{
-    background-color: rgba(6, 226, 255, 0.411);
-    padding: 2px;
-    border-radius: 4px ;
+    background-color: #eedcdc;
   }
   thead{
     background-color: rgba(9, 255, 243, 0.671);

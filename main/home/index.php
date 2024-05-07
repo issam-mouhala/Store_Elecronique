@@ -95,10 +95,11 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     <main>
     <div id="switch_imgs" data-i="2">
         <img src="../img/stock/stock_img11.png" alt="" >
+                <img src="../img/stock/stock_img2.png" >
+
         <img src="../img/stock/stock_img12.png"  >
         <img src="../img/stock/stock_img13.png" >
         <img src="../img/stock/stock_img14.png" >
-        <img src="../img/stock/stock_img2.jpg" >
 
       </div>
       <div class="flex_r" id="products">
@@ -117,8 +118,8 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         </div>
         <h1>".$row["name"]."</h1>
         <div class=\"product".$i."_price product_price\">
-          <a><h2>Price $".$row["Price"]-($row["Price"]*($row["Solde"]/100))."</h2></a>
-          <h2>$".$row["Price"]."</h2>
+          <a><h2>Price ".$row["Price"]-($row["Price"]*($row["Solde"]/100))." <div class='dhs' >Dhs</div></h2></a>
+          <h2>".$row["Price"]." <div class='dhs' >Dhs</div></h2>
         </div>
         <form action=\"index.php\" method=\"post\">
           <input name=\"products\" value=\"".$row['id_s']."\" style=\"display: none;\">

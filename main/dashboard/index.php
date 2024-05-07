@@ -56,14 +56,14 @@
          <div class="statique" >
              <div><div class="S1 s"><div><i class="fa-solid fa-user-group"></i></div><span data-pro="0" id="users">0</span></div><h1>Users</h1><div id="bar"><span data-bar="0" id="users_bar"></span></div></div> 
              <div><div class="S2 s"><div><i class="fa-solid fa-bag-shopping"></i></div><span data-pro="0" id="products">0</span></div><h1>Products</h1><div id="bar" ><span data-bar="0" id="products_bar"></span></div></div>
-             <div><div class="S3 s"><div><i class="fa-solid fa-hand-holding-dollar"></i></div>$<span data-price="0" id="price_totale">0</span></div><h1>Price Totale</h1><div id="bar"><span data-bar="0" id="price_totale_bar"></span></div></div>
+             <div><div class="S3 s"><div><i class="fa-solid fa-hand-holding-dollar"></i></div><span data-price="0" id="price_totale">0</span> Dhs</div><h1>Price Totale</h1><div id="bar"><span data-bar="0" id="price_totale_bar"></span></div></div>
              <div><div class="S4 s"><div><i class="fa-solid fa-person"></i></div>
              F:
              <?php
              echo $f['f']
              
              ?>
-             H:
+             M:
              <?php
              echo $m['f']
              
@@ -125,7 +125,7 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Price($)</th>
+                    <th>Price(Dhs)</th>
                     <th>Solde(%)</th>
                     <th>Stock</th>
                     <th>Image</th>
@@ -173,7 +173,18 @@
             </tr>";     
             
             }
-          
+        //   echo" 
+        //   <tr>
+        //   <td><div><input readonly type=\"search\" name=\"p\" id=\"id\" value=\"--\"></div></td>
+        //   <td><div><input   type=\"search\" name=\"name\" id=\"\" value=\"--\"></div></td>
+        //   <td><div><input   type=\"search\" name=\"desc\" id=\"\" value=\"--\"></div></td>
+        //   <td><div><input   type=\"search\" name=\"price\" id=\"id\" value=\"--\"></div></td>
+        //   <td><div><input   type=\"search\" name=\"solde\" id=\"id\" value=\"--\"></div></td>
+        //   <td><div><input   type=\"search\" name=\"stock\" id=\"id\" value=\"--\"></div></td>
+        //   <td><div><input   type=\"search\" name=\"image\" id=\"\" value=\"--\"></div></td>
+        //   <td>  
+        //   </tr>
+        //   "
             ?>
              <?php
              if (isset($_POST['btn1'])) {

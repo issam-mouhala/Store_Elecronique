@@ -192,6 +192,7 @@ img{
     border: 0;
     font-size:x-large;
     width: 50px;
+    text-align: center;
 }
 #stock:focus{
     outline: 0;
@@ -247,9 +248,9 @@ img{
         </div>
         </div>
               <div class="detile">
-              <h2>$'.$pro["Price"]-($pro["Price"]*($pro["Solde"]/100)).'</h2>
+              <h2>'.$pro["Price"]-($pro["Price"]*($pro["Solde"]/100)).' Dhs</h2>
                 <div class="solde">
-                         <h4><del>$'.$pro['Price'].'</del></h4>
+                         <h4><del>'.$pro['Price'].' Dhs</del></h4>
                          <h4>-'.$pro['Solde'].'%</h4>
 
                 </div>
@@ -295,14 +296,14 @@ img{
                 $sum=($sum==null) ? 0: $sum;
                 echo $sum;
 
-                ?>$</span>
+                ?> Dhs</span>
             <p>Frais de livraison non inclus a ce stade</p>
            </div>
            <hr>
-          <button type="submit">COMMANDER($ <?php
+          <button type="submit">COMMANDER(<?php
           
                 echo $sum
-                ?>)</button>
+                ?> Dhs)</button>
           </div>
           </div>
    

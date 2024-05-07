@@ -57,7 +57,7 @@
             });
 
        let top_price=document.querySelector("#best_price");
-       top_price.textContent= "$"+'.$Sum_products["max"].';
+       top_price.textContent= '.$Sum_products["max"].'+"Dhs";
        let top_pro=document.querySelector("#best_product");
        top_pro.textContent= " '.$top_pro_name["name"].'";
        let d_price=document.querySelector(".d_pro #name p");
@@ -67,7 +67,7 @@
        let d_desc=document.querySelector(".d_pro #desc p");
        d_desc.textContent=" '.$top_pro_name["descreption"].'";
        let price=document.querySelector(".d_pro #price p");
-       price.textContent="$'.$top_pro_name["Price"].'";
+       price.textContent="'.$top_pro_name["Price"].'"+"Dhs";
        let solde=document.querySelector(".d_pro #solde p");
        solde.textContent=" '.$top_pro_name["Solde"].'%";
        
@@ -78,13 +78,13 @@
         echo '
         <script>
          top_pro=document.querySelector("#best_price");
-        top_pro.textContent= "$'.$top_price["Price"].'";
+        top_pro.textContent= "'.$top_price["Price"].'"+"Dhs";
          d_price=document.querySelector(".d_price #name p");
         d_price.textContent="'.$top_price["name"].'";
          d_desc=document.querySelector(".d_price #desc p");
         d_desc.textContent=" '.$top_price["descreption"].'";
          price=document.querySelector(".d_price #price p");
-        price.textContent="$'.$top_price["Price"].'";
+        price.textContent="'.$top_price["Price"].'"+"Dhs";
          solde=document.querySelector(".d_price #solde p");
         solde.textContent=" '.$top_price["Solde"].'%";
         </script>
