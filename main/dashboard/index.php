@@ -317,6 +317,41 @@
        
 </div>
 <div class="orders screen"  data-class="orders">
+<h1>Orders</h1>
+<table >            <thead>
+                <tr>
+                    <th>Id_Orders</th>
+                    <th>Email_clients</th>
+                    <th>IdProduits</th>
+                    <th>Quntite</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+             $sql_data="SELECT * FROM `commande` order by id_user desc ";
+             $query_data=mysqli_query($conn,$sql_data);
+            
+            while ( $top_data=mysqli_fetch_assoc($query_data)) {
+                $sql_data="SELECT email FROM `users` where id='".$top_data['id_user']."' ";
+                $query_user=mysqli_query($conn,$sql_data);
+                $user=mysqli_fetch_assoc($query_user) ;
+                 echo"
+                 <tr>
+            <td><div><input  readonly  type=\"search\"  value=\"".$top_data['id']."\"></div></td>
+            <td><div><input readonly  type=\"search\"  id=\"\" value=\"".$user['email']."\"></div></td>
+            <td><div><input readonly  type=\"search\"  id=\"\" value=\"".$top_data['id_pro']."\"></div></td>
+            <td><div><input readonly  type=\"search\"  id=\"\" value=\"".$top_data['qnt']."\"></div></td>
+            <td><div><input  readonly type=\"search\"  id=\"\" value=\"".$top_data['date']."\"></div></td>
+
+             </tr>
+             ";
+            }
+          
+             ?> 
+            </tbody>
+           
+        </table>
 </div>
       <?php
       include("get_statique.php");

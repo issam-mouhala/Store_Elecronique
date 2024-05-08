@@ -56,13 +56,14 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
       <div class="titre flex_r">
         <h1>Lotchy Store</h1>
       </div>
-      <input type="search" name="" id="" placeholder="Search in store...">
-      <input type="submit" value="Search">
+      <!-- <input type="search" name="" id="" placeholder="Search in store...">
+      <input type="submit" value="Search"> -->
       <ul class="nav" >
-       
-        <li><a  href="" id="a">Option2</a></li>
-        <li><a href="" id="a">Option3</a></li>
-        <li><a href="" id="a">Option4</a></li>
+        <li onclick="main(this)" data-class="homes" id="li1">Home</li>
+        <li onclick="main(this)" data-class="ordinateurs" id="li2">Ordinateurs</li>
+        <li onclick="main(this)" data-class=" materiels" id="li3">Materiels</li>
+        <li onclick="main(this)" data-class="phones" id="li4">Phones</li>
+        <li onclick="main(this)" data-class="screens" id="li5">Screens</li>
         <div id="sale_display" >
           <div class="top"></div>
         </div>
@@ -92,7 +93,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         ?>
       </ul>
     </nav>
-    <main>
+    <d>
     <div id="switch_imgs" data-i="2">
         <img src="../img/stock/stock_img11.png" alt="" >
                 <img src="../img/stock/stock_img2.png" >
@@ -102,7 +103,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         <img src="../img/stock/stock_img14.png" >
 
       </div>
-      <div class="flex_r" id="products">
+      <div class="flex_r screen" id="products" data-class="homes" >
         <?php 
         $sql="SELECT * FROM products";
        $r= mysqli_query($conn,$sql);
@@ -146,10 +147,210 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
           x
          </div>
       </div>
+      <div class="screen materiels" data-class=" materiels">
+
+
+      <div class="flex_r" id="products"  >
+        <?php 
+        $sql="SELECT * FROM products where type='materiels'";
+       $r= mysqli_query($conn,$sql);
+        $i=0;
+       while($row=mysqli_fetch_assoc($r)){
+          echo"
+          <div class=\"product".$i."\" id=\"product\">
+          <div class=\"before\">
+          ".$row["Solde"]."%
+        </div>
+          <div class=\"product".$i."_img product_img\">
+          <img src=\"".$row["Image"]."\" alt=\"img".$i."\">
+        </div>
+        <h1>".$row["name"]."</h1>
+        <div class=\"product".$i."_price product_price\">
+          <a><h2>Price ".$row["Price"]-($row["Price"]*($row["Solde"]/100))." <div class='dhs' >Dhs</div></h2></a>
+          <h2>".$row["Price"]." <div class='dhs' >Dhs</div></h2>
+        </div>
+        <form action=\"index.php\" method=\"post\">
+          <input name=\"products\" value=\"".$row['id_s']."\" style=\"display: none;\">
+          <div class=\"panier_paye\">
+            <button name=\"btn\" type=\"reset\" onclick=\"  let name='$nom'
+            if (name=='Guest') {
+                  document.querySelector('.signin_des').style.display='flex';
+            }else{
+                     this.type='submit';
+            }\">
+              <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"><h4>Add to carte</h4></i>
+            </button>
+          </div>
+        </form>
+        </div>
+              ";
+       }
+        
+    
+       ?> 
+      </div>
+      </div>
+      <div class="screen phones" data-class="phones">
+        
+      <div class="flex_r" id="products"  >
+        <?php 
+        $sql="SELECT * FROM products where type='phones'";
+       $r= mysqli_query($conn,$sql);
+        $i=0;
+       while($row=mysqli_fetch_assoc($r)){
+          echo"
+          <div class=\"product".$i."\" id=\"product\">
+          <div class=\"before\">
+          ".$row["Solde"]."%
+        </div>
+          <div class=\"product".$i."_img product_img\">
+          <img src=\"".$row["Image"]."\" alt=\"img".$i."\">
+        </div>
+        <h1>".$row["name"]."</h1>
+        <div class=\"product".$i."_price product_price\">
+          <a><h2>Price ".$row["Price"]-($row["Price"]*($row["Solde"]/100))." <div class='dhs' >Dhs</div></h2></a>
+          <h2>".$row["Price"]." <div class='dhs' >Dhs</div></h2>
+        </div>
+        <form action=\"index.php\" method=\"post\">
+          <input name=\"products\" value=\"".$row['id_s']."\" style=\"display: none;\">
+          <div class=\"panier_paye\">
+            <button name=\"btn\" type=\"reset\" onclick=\"  let name='$nom'
+            if (name=='Guest') {
+                  document.querySelector('.signin_des').style.display='flex';
+            }else{
+                     this.type='submit';
+            }\">
+              <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"><h4>Add to carte</h4></i>
+            </button>
+          </div>
+        </form>
+        </div>
+              ";
+       }
+        
+    
+       ?> 
+      </div>
+      </div>
+      <div class="screen ordinateurs" data-class="ordinateurs">
+      
+      <div class="flex_r" id="products"  >
+        <?php 
+        $sql="SELECT * FROM products where type='ordinateurs'";
+       $r= mysqli_query($conn,$sql);
+        $i=0;
+       while($row=mysqli_fetch_assoc($r)){
+          echo"
+          <div class=\"product".$i."\" id=\"product\">
+          <div class=\"before\">
+          ".$row["Solde"]."%
+        </div>
+          <div class=\"product".$i."_img product_img\">
+          <img src=\"".$row["Image"]."\" alt=\"img".$i."\">
+        </div>
+        <h1>".$row["name"]."</h1>
+        <div class=\"product".$i."_price product_price\">
+          <a><h2>Price ".$row["Price"]-($row["Price"]*($row["Solde"]/100))." <div class='dhs' >Dhs</div></h2></a>
+          <h2>".$row["Price"]." <div class='dhs' >Dhs</div></h2>
+        </div>
+        <form action=\"index.php\" method=\"post\">
+          <input name=\"products\" value=\"".$row['id_s']."\" style=\"display: none;\">
+          <div class=\"panier_paye\">
+            <button name=\"btn\" type=\"reset\" onclick=\"  let name='$nom'
+            if (name=='Guest') {
+                  document.querySelector('.signin_des').style.display='flex';
+            }else{
+                     this.type='submit';
+            }\">
+              <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"><h4>Add to carte</h4></i>
+            </button>
+          </div>
+        </form>
+        </div>
+              ";
+       }
+        
+    
+       ?> 
+      </div>
+      </div>
+      <div class="screen screens" data-class="screens">
+      
+      <div class="flex_r" id="products"  >
+        <?php 
+        $sql="SELECT * FROM products where type='screens'";
+       $r= mysqli_query($conn,$sql);
+        $i=0;
+       while($row=mysqli_fetch_assoc($r)){
+          echo"
+          <div class=\"product".$i."\" id=\"product\">
+          <div class=\"before\">
+          ".$row["Solde"]."%
+        </div>
+          <div class=\"product".$i."_img product_img\">
+          <img src=\"".$row["Image"]."\" alt=\"img".$i."\">
+        </div>
+        <h1>".$row["name"]."</h1>
+        <div class=\"product".$i."_price product_price\">
+          <a><h2>Price ".$row["Price"]-($row["Price"]*($row["Solde"]/100))." <div class='dhs' >Dhs</div></h2></a>
+          <h2>".$row["Price"]." <div class='dhs' >Dhs</div></h2>
+        </div>
+        <form action=\"index.php\" method=\"post\">
+          <input name=\"products\" value=\"".$row['id_s']."\" style=\"display: none;\">
+          <div class=\"panier_paye\">
+            <button name=\"btn\" type=\"reset\" onclick=\"  let name='$nom'
+            if (name=='Guest') {
+                  document.querySelector('.signin_des').style.display='flex';
+            }else{
+                     this.type='submit';
+            }\">
+              <i class=\"fa-solid fa-cart-plus panier\" id=\"product".$i."\" data-click=\"false\" data-name_product=\"".$row["name"]."\"><h4>Add to carte</h4></i>
+            </button>
+          </div>
+        </form>
+        </div>
+              ";
+       }
+        
+    
+       ?> 
+      </div>
+      </div>
     </main>
     
     <footer>
-    </footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>À propos</h2>
+            <p>
+Lotchy Store est une boutique en ligne spécialisée dans la vente de produits de haute qualité. Notre entreprise s'engage à offrir une large gamme de produits tendance.</p>
+            <div class="contact">
+                <span><i class="fas fa-envelope"></i> Issam.MOUHALA@Gmail.com</span>
+                <span><i class="fas fa-phone"></i> +123456789</span>
+            </div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-section links">
+            <h2>Liens rapides</h2>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 Lotchy Store. Tous droits réservés.
+    </div>
+</footer>
+
+
     <div class="signin_des">
       <div class="x" onclick="document.querySelector('.signin_des').style.display='none'">
         X
@@ -157,8 +358,27 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     <div class="signin"><a id="signin"href="../signin/signin.php" >Sign In<i class="fa-solid fa-chevron-down"></i></a></div>
     </div>
     <script>
-             
+                               window.localStorage.setItem("li","")
 
+             let screen=document.querySelectorAll(".screen");
+              function main(th){
+                          th.className="bg";
+                          document.querySelectorAll("li").forEach((e)=>{
+                            if (e!=th) {
+                                e.removeAttribute("class")
+                            } 
+                          })
+                  screen.forEach(e => {
+                    
+                    if(e.dataset.class==th.dataset.class){
+                         e.style.display="flex"
+                         window.localStorage.setItem("li",th.id)
+                    }else{
+                        e.style.display="none"
+                    }
+                  });
+                
+        }
       let li;
       let h3;
       let div;

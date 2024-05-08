@@ -82,7 +82,7 @@ ul{
 
     display: none;
 }
-.Products,.users,.dash{
+.Products,.users,.dash,.orders{
     overflow: hidden;
     grid-area: b;
     display: none;
@@ -93,7 +93,7 @@ ul{
     justify-content: center;
 
 }
-.Products,.users{
+.Products,.users,.orders{
     align-items: center;
 row-gap: 100px;
 }
@@ -163,8 +163,10 @@ ul li:hover{
 }
 .statique > div>div:first-child{
     padding: 40px;
-    border-radius: 20px;
     font-size: 4rem;
+    clip-path: polygon(0% 15%, 29% 6%, 15% 0%, 85% 0%, 100% 0, 100% 15%, 100% 85%, 73% 93%, 85% 100%, 15% 100%, 0 100%, 0% 85%);
+    filter:drop-shadow(1px 1px 100px black);
+
 }
 .statique > div{
     display: flex;
@@ -182,7 +184,6 @@ ul li:hover{
 }
 #user{
     padding:  3px 20px;
-    border-radius: 10px;
     cursor: pointer;
 }
 #user:hover{
@@ -190,16 +191,16 @@ ul li:hover{
 
 }
 .S1{
-    background-color: rgb(209, 255, 3);
+    background-color: #028ef90c;
 }.S2{
-    background-color: rgb(0, 255, 21);
+    background-color: #00E497;
 }
 .S3{
-    background-color: rgb(0, 238, 255);
+    background-color: #FFAF1C;
 }.S4{
-    background-color: rgba(72, 105, 255, 0.753);
+    background-color:#ff456118;
 }.S5{
-    background-color: rgb(255, 0, 98);
+    background-color: rgba(255, 0, 98, 0.062);
 }
 
 #bar{
@@ -270,7 +271,6 @@ a{
 }
 .controller div >span{
     border: 2px solid white;
-    border-radius: 10px;
     padding: 20px;
      color: #ffffff;
     font-weight: bolder;
@@ -281,7 +281,6 @@ button{
     padding: 5px 20px;
     background-color: rgb(0, 0, 0);
     border: 0;
-    border-radius: 4px;
     color: rgb(255, 227, 227);
     cursor: pointer;
 }
