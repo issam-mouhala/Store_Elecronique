@@ -138,7 +138,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
               ";
        }
         
-       
+    
        ?> 
       </div>
       <div class="displaye_paye">

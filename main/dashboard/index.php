@@ -37,13 +37,13 @@
       <ul>   <li onclick="main(this)" data-class="dash" id="li1"><i class="fa-solid fa-house"></i>Home</li>   
             <li onclick="main(this)" data-class="Products" id="li2"><i class="fa-solid fa-bag-shopping"></i>Products</li>
             <li onclick="main(this)" data-class="users" id="li3"><i class="fa-solid fa-user-group"></i>Users</li>
+            <li onclick="main(this)" data-class="orders" id="li4"><i class="fa-brands fa-jedi-order"></i>Orders</li>
             <!-- <li>option4</li>
             <li>option5</li> -->
         </ul>
         <a href="../signin/signin.php">  <h2 class="out">Out</h2></a>  
     </nav>
-    <main></main>
-    <div class="dash screen"  data-class="dash">
+    <main></main>    <div class="dash screen"  data-class="dash">
 <?php 
  $sql_top_user="select COUNT(gander) f from users where gander='f'";
  $query_top_user=mysqli_query($conn,$sql_top_user);
@@ -51,7 +51,6 @@
  $sql_top_user="select COUNT(gander) f from users where gander='m'";
  $query_top_user=mysqli_query($conn,$sql_top_user);
  $m=mysqli_fetch_assoc($query_top_user);
-
 ?>
          <div class="statique" >
              <div><div class="S1 s"><div><i class="fa-solid fa-user-group"></i></div><span data-pro="0" id="users">0</span></div><h1>Users</h1><div id="bar"><span data-bar="0" id="users_bar"></span></div></div> 
@@ -317,6 +316,8 @@
         </table>
        
 </div>
+<div class="orders screen"  data-class="orders">
+</div>
       <?php
       include("get_statique.php");
       ?>
@@ -350,7 +351,7 @@
             ';}
             ?>
 
-            
+
             let desp=document.querySelector("#"+window.localStorage.getItem("li"))
             document.querySelector("."+desp.dataset.class).style.display="flex"
             desp.className="bg"

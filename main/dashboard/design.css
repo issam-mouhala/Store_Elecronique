@@ -279,7 +279,7 @@ a{
 }
 button{
     padding: 5px 20px;
-    background-color: rgba(0, 195, 255, 0.678);
+    background-color: rgb(0, 0, 0);
     border: 0;
     border-radius: 4px;
     color: rgb(255, 227, 227);
@@ -412,11 +412,11 @@ table {
     
   }
   tr:nth-child(even) {
-    background-color: #eedcdc;
+    background-color: #ffffff;
   }
   thead{
-    background-color: rgba(9, 255, 243, 0.671);
-    color: #000000;
+    background-color: #a9f2f5;
+    text-decoration: dotted;
   }
   td:not(#id){
     color: rgb(17, 17, 27);
@@ -467,7 +467,7 @@ width: 100px;
     padding:  15px 40px;
     width: 100%;
     font-size: xx-large;
-    color: #000000;
+    color: #fffbfb;
   }
   input[value=""]:not(input#id){
     border: 2px solid red;
@@ -497,7 +497,7 @@ width: 100px;
     font-size: x-large;
   }
   .screen_pro > h1{
-    background-color: #00ccffb7;
+    background-color: #000000b7;
     border-radius: 10px;
     padding: 10px;
     color: #fffcfc;
@@ -587,7 +587,7 @@ a{
     position: absolute;
 }
 #save{
-    background-color: rgb(0, 110, 255);
+    background-color: rgb(7, 106, 255);
 
 
 }
@@ -596,7 +596,7 @@ a{
 
 }
 .bg{
-    background-color: rgb(0, 255, 234);
+    background-color: rgb(0, 0, 0);
 }
 
 .Products >h1{

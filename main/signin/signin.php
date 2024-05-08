@@ -21,7 +21,6 @@ mysqli_query($conn,$sql);
 <?php   
      include("design.css");
 ?>
-
   </style>
   <body>
     <nav><h1 class="titre">Lotchy Store</h1>

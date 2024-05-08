@@ -4,7 +4,6 @@ include("db_connect.php");
 $email = $_POST["email"];
 $pass = $_POST["password"];
 
-
 $sub = isset($_POST["sub"]) ? $_POST["sub"] : null;
 $signup=isset($_POST["signup"]) ? $_POST["signup"] : null;
 $status=$status2=null;
@@ -27,7 +26,7 @@ if(isset($sub)) {
         exit;
     }else{
         $row=mysqli_fetch_assoc((mysqli_query($conn,$sql)));
-        $sql = "Insert  into select_users values (1,".(int)$row["id"].")";
+        $sql = "Insert  into select_users values (1,".$row["id"].")";
         mysqli_query($conn,$sql);
         header("Location: ../home/");
 
