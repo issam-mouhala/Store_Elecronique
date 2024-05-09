@@ -61,7 +61,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
       <ul class="nav" >
         <li onclick="main(this)" data-class="homes" id="li1">Home</li>
         <li onclick="main(this)" data-class="ordinateurs" id="li2">Ordinateurs</li>
-        <li onclick="main(this)" data-class=" materiels" id="li3">Materiels</li>
+        <li onclick="main(this)" data-class="materiels" id="li3">Materiels</li>
         <li onclick="main(this)" data-class="phones" id="li4">Phones</li>
         <li onclick="main(this)" data-class="screens" id="li5">Screens</li>
         <div id="sale_display" >
@@ -85,7 +85,7 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
           ';
         }else{
           echo '<h3>Hello <u id="name">'.$nom.'</h3></u><li><a id="signout" href="http://127.0.0.1/siteWebProject/SiteMiniProject/main/signin/signin.php">    
-          Sign Out</a></li>';
+          <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>';
         }
         
         
@@ -93,17 +93,30 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         ?>
       </ul>
     </nav>
-    <d>
     <div id="switch_imgs" data-i="2">
-        <img src="../img/stock/stock_img11.png" alt="" >
-                <img src="../img/stock/stock_img2.png" >
-
+    <div id="price_solde">
         <img src="../img/stock/stock_img12.png"  >
-        <img src="../img/stock/stock_img13.png" >
-        <img src="../img/stock/stock_img14.png" >
+        <h1>22.4Dhs</h1>
+        </div>
+        <div id="price_solde">
+        <img src="../img/stock/stock_img11.png"  >
+        <h1>6720Dhs</h1>
+        </div>
+        <div id="price_solde">
+        <img src="../img/stock/stock_img2.png"  >
+        <h1>3149Dhs</h1>
+        </div>
+         
+        <div id="price_solde">
+        <img src="../img/stock/stock_img13.png"  >
+        <h1>500Dhs</h1>
+        </div>        <div id="price_solde">
+        <img src="../img/stock/stock_img14.png"  >
+        <h1>2050Dhs</h1>
+        </div>
 
       </div>
-      <div class="flex_r screen" id="products" data-class="homes" >
+      <div class="flex_r screen homes" id="products" data-class="homes" >
         <?php 
         $sql="SELECT * FROM products";
        $r= mysqli_query($conn,$sql);
@@ -147,10 +160,8 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
           x
          </div>
       </div>
-      <div class="screen materiels" data-class=" materiels">
 
-
-      <div class="flex_r" id="products"  >
+      <div class="flex_r screen materiels"  data-class="materiels" id="products"  >
         <?php 
         $sql="SELECT * FROM products where type='materiels'";
        $r= mysqli_query($conn,$sql);
@@ -189,10 +200,8 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     
        ?> 
       </div>
-      </div>
-      <div class="screen phones" data-class="phones">
-        
-      <div class="flex_r" id="products"  >
+                  
+      <div class="flex_r screen phones" data-class="phones" id="products"  >
         <?php 
         $sql="SELECT * FROM products where type='phones'";
        $r= mysqli_query($conn,$sql);
@@ -230,11 +239,9 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
         
     
        ?> 
-      </div>
-      </div>
-      <div class="screen ordinateurs" data-class="ordinateurs">
+      </div> 
       
-      <div class="flex_r" id="products"  >
+      <div class="flex_r screen ordinateurs " data-class="ordinateurs" id="products"  >
         <?php 
         $sql="SELECT * FROM products where type='ordinateurs'";
        $r= mysqli_query($conn,$sql);
@@ -273,10 +280,9 @@ if(mysqli_num_rows(mysqli_query($conn,$sql_by_id))<=0){
     
        ?> 
       </div>
-      </div>
-      <div class="screen screens" data-class="screens">
+    
       
-      <div class="flex_r" id="products"  >
+      <div class="flex_r screen screens" data-class="screens" id="products"  >
         <?php 
         $sql="SELECT * FROM products where type='screens'";
        $r= mysqli_query($conn,$sql);
@@ -358,10 +364,12 @@ Lotchy Store est une boutique en ligne spécialisée dans la vente de produits d
     <div class="signin"><a id="signin"href="../signin/signin.php" >Sign In<i class="fa-solid fa-chevron-down"></i></a></div>
     </div>
     <script>
-                               window.localStorage.setItem("li","")
-
-             let screen=document.querySelectorAll(".screen");
+        let desp=document.querySelector("#"+window.localStorage.getItem("li"))
+            document.querySelector("."+desp.dataset.class).style.display="flex"
+            desp.className="bg"
               function main(th){
+                let screen=document.querySelectorAll(".screen");
+
                           th.className="bg";
                           document.querySelectorAll("li").forEach((e)=>{
                             if (e!=th) {

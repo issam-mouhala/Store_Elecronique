@@ -1,6 +1,8 @@
 body{
     padding:0;
     margin: 0;
+    background-color: rgba(236, 236, 168, 0.473);
+
 }
 *{
     box-sizing: border-box;
@@ -89,11 +91,18 @@ nav > .nav >li:hover{
 }
 #products{
     gap: 40px;
-    margin: 20px;
+    margin: 100px 0px 100px 30px;
     justify-content: center;
-    width: 100vw;
+    width: 95vw;
     transition: all 0.7s linear;
     animation: pro 0.7s linear 1;
+    display: none;
+    padding: 100px;
+    background-color: #e7e2b3;
+
+}
+#product:hover{
+    scale: 1.1;
 }
 @keyframes pro {
     0%{
@@ -112,10 +121,11 @@ nav > .nav >li:hover{
     padding: 50px;
     box-shadow: 0px 0px 30px rgba(187, 189, 183, 0.658) ;
     border-radius: 20px;
+    background-color: white;
     display: flex;
     flex-direction: column;
      align-items: center;
-
+transition: all 0.6s linear;
 }
 #product h1{
     font-size: large;
@@ -147,17 +157,17 @@ nav > .nav >li:hover{
     height: max-content;
     width: 100%;
     margin-top: 30px;
-    background-color: rgb(255, 255, 255);
+    background-color:#c5c4c479;
     background-size:contain;
     display: flex;
     align-items: center;
     justify-content: space-around;
    box-shadow: 0px 20px 20px gainsboro;
-    padding-bottom: 40px;
+    padding-bottom: 5px;
     overflow-x: scroll;
     column-gap: 3px;
     scrollbar-width: 10px;
-    scale: 0.9;
+    scale: 0.95;
 }
 #switch_imgs::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -166,7 +176,7 @@ nav > .nav >li:hover{
 
 #switch_imgs::-webkit-scrollbar {
     width: 6px;
-    background-color: transparent;
+    background-color: rgb(128, 126, 126);
 }
 
 #switch_imgs::-webkit-scrollbar-thumb {
@@ -192,12 +202,27 @@ nav > .nav >li:hover{
     scale: 0.9;
     border-right: 1px solid black;
     border-radius: 50px;
-    filter: drop-shadow(1px 1px 10px rgba(255, 98, 7, 0.445));
+    filter: drop-shadow(1px 1px 40px rgb(255, 255, 255));
 }
 #switch_img{
     width: 810px;
-    height: 50vh;
+    height: 40vh;
     transition: all 1s linear; 
+}
+#price_solde{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#price_solde h1{
+    width: 50%;
+    text-align: center;
+    transform: translateY(-70px);
+    color: #ccc;
+    background-color: #000000;
+    padding: 10px;
+
 }
 nav >ul > li:last-child{
     border: 0;
@@ -419,6 +444,8 @@ li{
 }
 #signout{
     transform: translate(20px,10px);
+    border-radius: 20px;
+    font-size: xx-large;
 }
 h3{
     display: inline;
@@ -602,6 +629,8 @@ footer {
     padding: 10px 0;
     font-size: 14px;
 }
-.bg{
-    background-color: rgb(0, 0, 0);
+li.bg{
+    background-color: rgb(255, 0, 0);
+scale: 1.5;
+box-shadow: 0px 0px 10px rgb(255, 255, 255);
 }
